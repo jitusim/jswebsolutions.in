@@ -1,0 +1,762 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+
+<url>
+  <loc>https://jswebsolutions.in/</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/html_template</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/laravel</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/live_demo</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-create-javascript-array-and-object</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/laravel-user-auth-log-out</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-get-full-url-in-your-website-using-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-delete-multiple-record-using-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-install-laravel-set-up-in-your-machine</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-use-destruct-magic-method-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-use-construct-magic-method-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/list-element-design-using-bootstrap-and-css</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-check-element-exists-in-array-using-php-in-array-method</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-on-off-your-laravel-project-debugging</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php-array-method</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php-magic-method</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-create-javascript-array-and-object</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/laravel-user-auth-log-out</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-get-full-url-in-your-website-using-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/how_to_get_first_character_in_string</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/how_to_remove_html_tag_in_string</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/how_to_remove_character_in_string</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/how_can_validate_a_email_id_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/base64_encode_function_in_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/base64_decode_function_in_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/how-to-use-password-hash-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes/how-to-build-pdo-mysql-database-connectivity-using-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/offers_deal</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/term_and_condition</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/hire-me</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/about</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/contact_us</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/privacy_policy</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/price_list_template_in_html_using_bootstrap_and_css</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/list-element-design-using-bootstrap-and-css</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/price_list_template_in_html_using_bootstrap_and_css</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-connect-a-mysql-pdo-database-using-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/nested-comment-and-reply-process-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/crud-operation-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/dynamic-depend-dropdown-list-simple-by-using-php-with-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-create-a-dynamic-image-gallery-using-php-ajax-pdo-mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/insert_complete_form_data_in_database_using_php_with_pdo</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_convert_timestamp_in_to_date_format_and_date_in_to_timestamp_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_can_remove_special_character_in_string_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes?page=2</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-delete-multiple-record-using-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-connect-a-mysql-pdo-database-using-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/file-upload-and-form-data-submit-without-form-submit-by-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/simple_crud_operation_without_page_refresh_using_php_with_ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/e-commerce-products-division-sort-by-price-range-and-lowest-to-highest-price-and-highest-to-lowest-price</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/simple-pan-card-validation-by-using-javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_add_text_editor_in_website</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_check_password_strength_using_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/javascript_reverse_countdown_timer</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_multple_image_upload_and_preview_after_browse_using_jquery_and_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/e-commerce-products-division-sort-by-price-range-and-lowest-to-highest-price-and-highest-to-lowest-price</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/simple-pan-card-validation-by-using-javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/products-list-sort-by-lowest-to-highest-price-and-highest-to-lowest-price-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/show-or-hide-division-click-on-checkbox</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/search-the-perticular-text-in-table-simple-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/simply-compare-between-selected-two-dates-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/autocomplete_text_box_using_query</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_add_google_language_converter_in_our_website</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/multiple_select_dropdown_list_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_division_fixed_on_header_top_when_window_scroll</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/load_more_data_on_button_click_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/products-list-sort-by-lowest-to-highest-price-and-highest-to-lowest-price-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/show-or-hide-division-click-on-checkbox</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/file-upload-and-form-data-submit-without-form-submit-by-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-image-upload-in-laravel</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-laravel-framework-project-switch-from-development-mode-to-production-mode</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how-to-redirect-http-to-https-in-laravel-using-middleware</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/how-to-create-a-dynamic-image-gallery-using-php-ajax-pdo-mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-create-a-dynamic-image-gallery-using-php-ajax-pdo-mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/how_to_multple_image_upload_and_preview_after_browse_using_jquery_and_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_multple_image_upload_and_preview_after_browse_using_jquery_and_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/load_more_data_on_button_click_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/load_more_data_on_button_click_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/how_division_fixed_on_header_top_when_window_scroll</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_division_fixed_on_header_top_when_window_scroll</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/multiple_select_dropdown_list_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/multiple_select_dropdown_list_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/javascript_reverse_countdown_timer</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/javascript_reverse_countdown_timer</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/how_to_integrate_instamojo_payment_gateway_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_integrate_instamojo_payment_gateway_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/how_to_calculate_age_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_calculate_age_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/simple_crud_operation_without_page_refresh_using_php_with_ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/simple_crud_operation_without_page_refresh_using_php_with_ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/live_demo?page=2</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/live_demo?page=3</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-check-element-exists-in-array-using-php-in-array-method</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-use-destruct-magic-method-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how-to-use-construct-magic-method-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/price_list_template_in_html_using_bootstrap_and_css</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/nested-comment-and-reply-process-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/crud-operation-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/how-to-create-a-dynamic-image-gallery-using-php-ajax-pdo-mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/insert_complete_form_data_in_database_using_php_with_pdo</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_get_how_many_day_are_remain_from_a_certain_date_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/pagination_using_core_php_with_pdo_mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_calculate_age_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/post/how_to_integrate_instamojo_payment_gateway_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/php_codes?page=1</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_get_how_many_day_are_remain_from_a_certain_date_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/pagination_using_core_php_with_pdo_mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/file-upload-and-form-data-submit-without-form-submit-by-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/simple_crud_operation_without_page_refresh_using_php_with_ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/e-commerce-products-division-sort-by-price-range-and-lowest-to-highest-price-and-highest-to-lowest-price</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/how_to_add_text_editor_in_website</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/how_to_check_password_strength_using_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/javascript_reverse_countdown_timer</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/how_to_multple_image_upload_and_preview_after_browse_using_jquery_and_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/products-list-sort-by-lowest-to-highest-price-and-highest-to-lowest-price-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/show-or-hide-division-click-on-checkbox</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/simply-compare-between-selected-two-dates-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/multiple_select_dropdown_list_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/how_division_fixed_on_header_top_when_window_scroll</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/load_more_data_on_button_click_using_jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/how_to_integrate_instamojo_payment_gateway_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/price_list_template_in_html_using_bootstrap_and_css</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/nested-comment-and-reply-process-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/nested-comment-and-reply-process-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/how_to_check_password_strength_using_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_check_password_strength_using_javascript</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/how_to_add_text_editor_in_website</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_add_text_editor_in_website</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_add_google_language_converter_in_our_website</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/pagination_using_core_php_with_pdo_mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/autocomplete_text_box_using_query</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_can_remove_special_character_in_string_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/how_to_convert_timestamp_in_to_date_format_and_date_in_to_timestamp_using_php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/live_demo?page=1</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/dynamic-depend-dropdown-list-simple-by-using-php-with-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/search-the-perticular-text-in-table-simple-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/simply-compare-between-selected-two-dates-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/simply-compare-between-selected-two-dates-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/e-commerce-products-division-sort-by-price-range-and-lowest-to-highest-price-and-highest-to-lowest-price</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/file-upload-and-form-data-submit-without-form-submit-by-using-php-and-ajax</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/products-list-sort-by-lowest-to-highest-price-and-highest-to-lowest-price-using-jquery</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/show-or-hide-division-click-on-checkbox</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/insert_complete_form_data_in_database_using_php_with_pdo</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/insert_complete_form_data_in_database_using_php_with_pdo</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download/crud-operation-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/blogPost/crud-operation-in-php</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jswebsolutions.in/download_post/pagination_using_core_php_with_pdo_mysql</loc>
+  <lastmod>2020-08-28T18:48:53+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+</urlset>
+

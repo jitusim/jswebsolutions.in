@@ -1,0 +1,61 @@
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+<h3>index.php</h3>
+
+<div style="box-sizing: border-box; padding: 0px;">
+<pre>
+     
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;How to calculate age in php &lt;/title&gt;
+&lt;/head&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+
+  &lt;?php
+  $dateOfBirth = &quot;17-09-1996&quot;;
+  $today = date(&quot;Y-m-d&quot;);
+  $diff = date_diff(date_create($dateOfBirth), date_create($today));
+  echo &#39;Age is &#39;.$diff-&gt;format(&#39;%y&#39;) .&quot;Year &quot; .$diff-&gt;format(&#39;%m&#39;).&#39; Month &#39;.$diff-&gt;format(&#39;%d&#39;).&quot; Days&quot;;
+  ?&gt;  
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+</div>
+
+<div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+</div>
+
+<div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+</div>
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<h3>for some Date difference format .</h3>
+
+<div style="box-sizing: border-box; padding: 0px;">
+<pre>
+     
+      
+      &lt;?php
+       $diff-&gt;format(&#39;%y&#39;); // For Year
+       $diff-&gt;format(&#39;%m&#39;); // For Month
+       $diff-&gt;format(&#39;%d&#39;); // For Day
+       $diff-&gt;format(&#39;%h&#39;); // For Hours
+       $diff-&gt;format(&#39;%i&#39;); // for year
+       $diff-&gt;format(&#39;%s&#39;); // For Second
+       $diff-&gt;format(&#39;%a&#39;); // Number of Days
+      ?&gt;
+     
+    </pre>
+
+<div>&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+</div>
+</div>

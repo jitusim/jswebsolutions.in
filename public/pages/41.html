@@ -1,0 +1,253 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<p class="p_for_post">
+  Do you know how to upload image in laravel ? In this tutorial we learn about how to upload image and file in laravel .  First you have to install laravel setup in your machine . if not know about how to install  laravel setup in you machine . then you follow this tutorial  <a target="_blank" href="https://jswebsolutions.in/post/how-to-install-laravel-set-up-in-your-machine"> How to install laravel set up in your machine </a> . In this tutorials we have disscuss in brief how to install laravel project .
+  
+</p>
+<p class="p_for_post">
+ In this article we learn how to create controller using command . Always remember some thing when you create controller in laravel . The first character of your controller name is capital like <strong> Homecontroller </strong> .
+</p>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<br />
+<p class="p_for_post">
+   First Install the laravel project using below command. 
+</p>
+<pre class="prettyprint linenums">
+composer create-project --prefer-dist laravel/laravel your_project_directory_name 
+</pre>
+<p class="p_for_post">
+   After successfully  Install laravel .  open your terminal and create Controller using below command . 
+</p>
+<pre class="prettyprint linenums">
+  php artisan make:controller HomeController 
+</pre>
+<p class="p_for_post">
+   Define  route
+</p>
+<pre class="prettyprint linenums">
+  Route::get('/' ,"HomeController@index"); 
+  Route::post('upload_image' ,"HomeController@upload_image");
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<br />
+<p class="p_for_post">
+   Manage your controller 
+</p>
+<pre class="prettyprint linenums">
+  &lt;?php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Auth;
+use Image; 
+use Illuminate\Support\Facades\Validator;
+
+class SpecialCondition extends Controller{
+     
+	  public $image_ext = array(&quot;jpeg&quot; , &quot;png&quot; , &quot;jpg&quot; , &quot;JPEG&quot; , &quot;PNG&quot; ,&quot;JPG&quot; );
+	
+	 
+	 public function index(){
+		$data['title'] = &quot;jswebsolutions | How to upload image in laravel&quot;; 
+               return view(&quot;index&quot;)-&gt;with($data); 
+         }
+	 
+	 public function upload_image(Request $request){
+		$image_path = public_path('storage/');
+		if(!is_dir($image_path)){ mkdir($image_path, 0755 , true); }
+		 if(!empty($request-&gt;image)){
+			  $fileName = md5(time().uniqid()).&quot;.&quot;.$request-&gt;file('image')-&gt;getClientOriginalExtension();
+		      $extension = $request-&gt;file('image')-&gt;getClientOriginalExtension();
+		      if(in_array($extension , $this-&gt;image_ext)){
+				  if($request-&gt;file('image')-&gt;move($image_path , $fileName)){
+					   return redirect()-&gt;back()-&gt;with(['msg'=&gt;'&lt;div class=&quot;notice notice-success&quot;&gt;
+                                           &lt;strong&gt;Success &lt;/strong&gt; Image upload Successful  .&lt;/div&gt;.']);  
+					}
+				  else{
+					   return redirect()-&gt;back()-&gt;with(['msg'=&gt;'&lt;div class=&quot;notice notice-danger&quot;&gt;
+                                           &lt;strong&gt;Wrong &lt;/strong&gt; Something Went wrong , please try again  .&lt;/div&gt;.']);
+					}	
+				}
+		   }
+		 else{  return redirect()-&gt;back()-&gt;with(['msg'=&gt;'&lt;div class=&quot;notice notice-danger&quot;&gt;
+                                           &lt;strong&gt;Wrong &lt;/strong&gt; Please select image !!!  .&lt;/div&gt;.']);  }  
+	 }
+}
+
+?&gt;
+ 
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<br />
+<p class="p_for_post">
+   style.css file
+</p>
+<pre class="prettyprint linenums">
+.color-red{color: #FF0000;}
+.color-green{color: #6cbc42;}
+.color-blue{color: #0080c5;}
+.color-twitter{color:#00aced;}
+.color-facebook{color:#00539f;}
+.color-linkedin{color:#0176b5;}
+
+/*NAVBAR STYLES*/
+.navbar-border{border-bottom: solid 5px #0080c5;}
+.login-panel { 
+    min-width: 250px; 
+    border-top: 14px solid #0080c5;
+    border-right: 1px solid #0080c5;
+    border-bottom-right-radius:0.5em;
+    -moz-border-radius-bottomright:0.5em;
+    border-bottom: 3px solid #0080c5;
+    border-left: 1px solid #0080c5;
+    border-bottom-left-radius:0.5em;
+    -moz-border-radius-bottomleft:0.5em;
+    }
+.dropdown-header { display: block !imnportant; padding-bottom: 30px; height: 10px; }
+.login-header { font-size: 20px; font-weight: bold; display: inline; float: left; }
+.forgot-password { font-size: 10px; display: inline; float: right; vertical-align: bottom; padding-top: 10px; }
+.center-text { text-align: center; }
+.error-message { font-size: 11px; }
+</pre>
+<p class="p_for_post"> index.blade.php </p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;Jswebsolutions.in | How to image upload in laravel&lt;/title&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;http://jswebsolutions.in/public/uploadsFiles/favicon_icon.png&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css&quot;&gt;
+  &lt;link href=&quot;{{ asset('site.css') }}&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div style=&quot;margin-bottom:100px;&quot;&gt;
+    &lt;nav class=&quot;navbar navbar-default navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;
+  &lt;div class=&quot;container-fluid navbar-border&quot;&gt;
+    &lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+    &lt;div class=&quot;navbar-header&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#bs-example-navbar-collapse-1&quot;&gt;
+        &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
+        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;a class=&quot;navbar-brand&quot; href=&quot;http://jswebsolutions.in/&quot;&gt;&lt;i class=&quot;fa fa-home&quot;&gt;&lt;/i&gt;&amp;nbsp;JSWEBSOLUTIONS&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;bs-example-navbar-collapse-1&quot;&gt;
+      &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://jswebsolutions.in/liveDemoCode&quot;&gt;&lt;i class=&quot;fa fa-arrow-circle-left&quot;&gt;&lt;/i&gt;&amp;nbsp;Back to Tutorials&lt;/a&gt;
+       &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+             &lt;li&gt;&lt;a href=&quot;https://twitter.com/jswebsolutions1&quot;&gt;&lt;i class=&quot;fa fa-twitter color-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+             &lt;li&gt;&lt;a href=&quot;https://www.facebook.com/Js-web-solutions-278328512804761/?modal=admin_todo_tour&quot;&gt;&lt;i class=&quot;fa fa-facebook color-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+             &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/company/jswebsolutions/&quot;&gt;&lt;i class=&quot;fa fa-linkedin color-linkedin&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+  &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+&lt;/nav&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot; style=&quot;margin-bottom:20px;&quot;&gt;
+     &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-12&quot;&gt;
+         &lt;h3&gt;How to image upload in laravel  .&lt;/h3&gt;
+          &lt;hr /&gt;
+        &lt;/div&gt; 
+     &lt;/div&gt;
+   &lt;/div&gt;
+&lt;div class=&quot;container&quot; style=&quot;margin-top:20px;&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+   &lt;div class=&quot;col-sm-8&quot;&gt;
+     &lt;form id=&quot;gallery_upload&quot; name=&quot;upload_image&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot; action=&quot;{{ url('upload_image') }}&quot;&gt; 
+         @csrf   
+&lt;div class=&quot;row&quot;  style=&quot;margin-top:50px;&quot;&gt;
+    &lt;div class=&quot;col-md-6 col-sm-12 col-lg-8 padding_div&quot;&gt;
+      &lt;input type=&quot;file&quot; name=&quot;image&quot; id=&quot;image&quot; class=&quot;form-control&quot; /&gt;
+      &lt;div style=&quot;margin-top:20px;&quot;&gt;
+       &lt;span id=&quot;upload_response&quot;&gt;&lt;/span&gt;  
+      &lt;/div&gt;
+	&lt;/div&gt;
+    &lt;div class=&quot;col-md-4 col-sm-12 col-lg-4 padding_div&quot;&gt;
+      &lt;button type=&quot;submit&quot; name=&quot;submit&quot; id=&quot;submit_button&quot; class=&quot;btn btn-success&quot;&gt;  &lt;i class=&quot;glyphicon glyphicon-upload&quot;&gt;&lt;/i&gt; Upload&lt;/button&gt;
+      &lt;button type=&quot;reset&quot; name=&quot;reset&quot; id=&quot;reset_button&quot; class=&quot;btn btn-danger&quot;&gt;  &lt;i class=&quot;glyphicon glyphicon-refresh&quot;&gt;&lt;/i&gt; Cancel&lt;/button&gt;
+      	&lt;/div&gt;
+   &lt;/div&gt;
+  &lt;/form&gt;  
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;hr /&gt;  
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div id=&quot;delete_response&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot; style=&quot;margin-top:20px; margin-bottom:100px;&quot; id=&quot;load_image_response&quot;&gt;&lt;/div&gt;       
+&lt;/div&gt;
+&lt;script src=&quot;jquery.fancybox.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;custom.js&quot;&gt;&lt;/script&gt; 
+&lt;footer class=&quot;section footer-classic context-dark bg-image&quot; style=&quot;background:#2d3246; margin-top:200px;&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+          &lt;div class=&quot;row row-30&quot;&gt;
+            &lt;div class=&quot;col-md-12 col-xl-3&quot;&gt;
+              &lt;h3&gt;Footer&lt;/h3&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<br />
+</div>
+</div>
+</div>

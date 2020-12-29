@@ -1,0 +1,3 @@
+[26-Nov-2019 18:25:16 Etc/GMT] PHP Parse error:  syntax error, unexpected '=' in /home/loveexep/public_html/jswebsolutions.in/vendor/laravel/framework/src/Illuminate/Support/Arr.php on line 384
+[15-Jan-2020 10:28:08 Etc/GMT] PHP Warning:  require_once(/home/loveexep/public_html/jswebsolutions.in/public/index.php): failed to open stream: No such file or directory in /home/loveexep/public_html/jswebsolutions.in/server.php on line 21
+[15-Jan-2020 10:28:08 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/loveexep/public_html/jswebsolutions.in/public/index.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/loveexep/public_html/jswebsolutions.in/server.php on line 21

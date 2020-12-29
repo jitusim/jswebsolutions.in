@@ -1,0 +1,50 @@
+<pre>
+   
+       &lt;?php
+         public  function remove_special_character($text){
+           $text = preg_replace(&#39;~[^\pL\d]+~u&#39;, &#39;-&#39;, $text);
+           $text = iconv(&#39;utf-8&#39;, &#39;us-ascii//TRANSLIT&#39;, $text);
+              $text = preg_replace(&#39;~[^-\w]+~&#39;, &#39;&#39;, $text);
+              $text = trim($text, &#39;-&#39;);
+              $text = preg_replace(&#39;~-+~&#39;, &#39;-&#39;, $text);
+              $text = strtolower($text);
+            if (empty($text)) {
+                return &#39;n-a&#39;;
+              }
+            return $text;
+		}
+        
+        $string = &quot;Business Promotion and Advertisement in Kanpur&quot;;
+        $result = remove_special_character($string);
+        echo $result;
+        
+        /*Output*/
+        
+        Business-Promotion-and-Advertisement-in-Kanpur
+        
+       ?&gt;
+     </pre>
+
+<p><!--?php
+         public  function remove_special_character($text){
+           $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+           $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+              $text = preg_replace('~[^-\w]+~', '', $text);
+              $text = trim($text, '-');
+              $text = preg_replace('~-+~', '-', $text);
+              $text = strtolower($text);
+            if (empty($text)) {
+                return 'n-a';
+              }
+            return $text;
+		}
+        
+        $string = "Business Promotion and Advertisement in Kanpur";
+        $result = remove_special_character($string);
+        echo $result;
+        
+        /*Output*/
+        
+        Business-Promotion-and-Advertisement-in-Kanpur
+        
+       ?--></p>

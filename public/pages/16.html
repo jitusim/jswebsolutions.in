@@ -1,0 +1,81 @@
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>index.php</h3>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+       &lt;div class=&quot;container&quot; style=&quot;margin-top:80px;&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-12&quot;&gt;
+    &lt;h3&gt;Auto Complete text box using jQuery .&lt;/h3&gt;
+                &lt;hr /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;
+     &lt;div class=&quot;ui-widget&quot;&gt;
+  &lt;label for=&quot;search&quot;&gt;Search: &lt;/label&gt;
+  &lt;input id=&quot;search&quot;  name=&quot;language&quot; /&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-4&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+     
+    </pre>
+</div>
+</div>
+
+<div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+</div>
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>custom.js</h3>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+        &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://code.jquery.com/ui/1.12.1/jquery-ui.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+  $( function() {
+    var availableTags = [
+      &quot;ActionScript&quot;,
+      &quot;AppleScript&quot;,
+      &quot;Asp&quot;,
+      &quot;BASIC&quot;,
+      &quot;C&quot;,
+      &quot;C++&quot;,
+      &quot;Java&quot;,
+      &quot;JavaScript&quot;,
+      &quot;Lisp&quot;,
+      &quot;Perl&quot;,
+      &quot;PHP&quot;,
+      &quot;Python&quot;,
+      &quot;Ruby&quot;,
+      &quot;Scala&quot;,
+      &quot;Scheme&quot;
+    ];
+    $( &quot;#search&quot; ).autocomplete({
+      source: availableTags
+    });
+  } );
+  &lt;/script&gt;
+     
+    </pre>
+
+<div>&nbsp;</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,245 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<h3>Create table</h3>
+<pre class="prettyprint linenums">
+CREATE TABLE `userstbl` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `emailID` varchar(50) NOT NULL,
+  `uesrName` varchar(50) NOT NULL,
+  `userpassword` varchar(20) NOT NULL,
+  `photo` varchar(50) NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `city` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+</pre>
+<h3>database.php</h3>
+<pre  class="prettyprint linenums">
+&lt;?php
+ class dbmodel
+ {
+    private $dbHost     = &quot;localhost&quot;;
+    private $dbUsername = &quot;root&quot;;
+    private $dbPassword = &quot;&quot;;
+    private $dbName = &quot;jswebsolutions&quot;;
+	public function __construct()
+	{
+ 		try {
+          $conn = new PDO(&quot;mysql:host=&quot;.$this-&gt;dbHost.&quot;;dbname=&quot;.$this-&gt;dbName, $this-&gt;dbUsername, $this-&gt;dbPassword);
+         // set the PDO error mode to exception
+          $conn-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $this-&gt;db = $conn;
+		  //echo &quot;Connected successfully&lt;br /&gt;&quot;; 
+            }
+          catch(PDOException $e)
+            {
+             echo &quot;Connection failed: &quot; . $e-&gt;getMessage();
+            }
+	}
+ }
+?&gt;
+
+    </pre>
+<h3>insert.php</h3>
+<pre class="prettyprint linenums">
+&lt;?php 
+include&quot;classCrud.php&quot;;
+$obj = new Classcrud;
+if(isset($_POST[&#39;submit&#39;])){
+    if(empty($_POST[&#39;firstname&#39;]) || empty($_POST[&#39;mobile&#39;]) || empty($_POST[&#39;email&#39;]) || empty($_POST[&#39;gender&#39;]) || empty($_POST[&#39;city&#39;]) || empty($_POST[&#39;username&#39;]) || empty($_POST[&#39;password&#39;]) || empty($_POST[&#39;repassword&#39;])){
+        $err = &quot;please fill all required fields .&quot;;
+	 }
+	else{
+	 if($_POST[&#39;password&#39;] == $_POST[&#39;repassword&#39;]){	
+	  $filename = basename($_FILES[&#39;image&#39;][&#39;name&#39;]);//echo $file;exit;
+		if(empty($filename)){ $filename = &quot;default.jpeg&quot;;   }
+			 $file = rand(1,1000).&quot;-&quot;.$filename;//echo $file;exit;
+			 $ext = end(explode(&#39;.&#39;, $file));//echo $ext;exit; 
+			 $file_loc = $_FILES[&#39;image&#39;][&#39;tmp_name&#39;];//echo $file_loc;exit;
+			 $file_size = $_FILES[&#39;image&#39;][&#39;size&#39;]; //echo $file_size;exit;
+			 $folder = &#39;image/&#39;;
+			 $new_size = $file_size/1024;//echo $new_size;exit;
+			 $new_file_name = strtolower($file);
+			 $final_file = str_replace(&#39; &#39;,&#39;-&#39;,$new_file_name);
+			  if($ext==&quot;jpg&quot; || $ext==&quot;png&quot; || $ext==&quot;jpeg&quot; ){
+				  if($new_size&lt;=500){
+					 move_uploaded_file($file_loc,$folder.$final_file);
+					 $data = array(&quot;name&quot;=&gt;$_POST[&#39;firstname&#39;],&quot;mobile&quot;=&gt;$_POST[&#39;mobile&#39;],&quot;emailID&quot;=&gt;$_POST[&#39;email&#39;],&quot;uesrName&quot;=&gt;$_POST[&#39;username&#39;],&quot;userpassword&quot;=&gt;$_POST[&#39;password&#39;],&quot;photo&quot;=&gt;$final_file,&quot;gender&quot;=&gt;$_POST[&#39;gender&#39;],&quot;city&quot;=&gt;$_POST[&#39;city&#39;]);
+					 $insertResult = $obj-&gt;insert(&quot;userstbl&quot;,$data);
+					 if($insertResult != FALSE){
+					     header(&quot;Location:index.php?success&quot;);
+					   }
+					  else{
+					   header(&quot;Location:index.php?failed&quot;);
+					   } 
+				  }
+				  else{
+				   $err = &quot;Image are not upload.&quot;;
+				  }
+			  }
+			  else{
+			      $err = &quot;Invalid image , image type jpeg , png , jpg are allowed .&quot;;
+			   }
+	  }
+	  else{
+		   $err = &quot;Password does not match&quot;;
+		 }
+	} 
+ }
+?&gt;
+</pre>
+<h3>index.php</h3>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;Insert Form data with File Photo using PDO &lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+&lt;link href=&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;style&gt;
+body {padding-top:50px; }
+fieldset {border: thin solid #ccc; border-radius: 4px; padding: 20px; padding-left: 40px;
+ background: #fbfbfb; }
+legend {color: #678; }
+.form-control { width: 95%; }
+label small { color: #678 !important; }
+span.req { color:maroon; font-size: 112%; }
+&lt;/style&gt;
+ &lt;div class=&quot;container&quot; ng-app=&quot;CRUD&quot; ng-controller=&quot;crudController&quot;&gt;
+	&lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-12&quot; style=&quot;margin-top:-15px; margin-bottom:15px;&quot;&gt;
+        &lt;h2&gt;Insert Complete Form Data in database using PHP with PDO &lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-sm-12&quot; style=&quot;margin-top:-15px; margin-bottom:15px;&quot;&gt;
+       &lt;?php 
+	    if(isset($_GET[&#39;failed&#39;])){
+		     ?&gt;
+			 &lt;p class=&quot;alert alert-danger&quot;&gt;Unexpected try again . .&lt;/p&gt;
+			 &lt;?php
+		  }
+		   if(isset($_GET[&#39;success&#39;])){
+		     ?&gt;
+			 &lt;p class=&quot;alert alert-success&quot;&gt;Record insert successfully .&lt;/p&gt;
+			 &lt;?php
+		  }
+		 if(isset($err)){
+		     ?&gt;
+			 &lt;p class=&quot;alert alert-danger&quot;&gt;&lt;?php echo $err; ?&gt;&lt;/p&gt;
+			 &lt;?php
+		   } 
+	   ?&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-6&quot;&gt;
+            &lt;form id=&quot;registrationForm&quot; method=&quot;post&quot; action=&quot;&quot; role=&quot;form&quot; enctype=&quot;multipart/form-data&quot;&gt;
+            &lt;fieldset&gt;&lt;legend class=&quot;text-center&quot;&gt;Valid information is required to register. &lt;span class=&quot;req&quot;&gt;&lt;small&gt; required *&lt;/small&gt;&lt;/span&gt;&lt;/legend&gt;
+            &lt;div class=&quot;form-group&quot;&gt; 	 
+                &lt;label for=&quot;firstname&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Name: &lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; name=&quot;firstname&quot; id=&quot;firstname&quot; type=&quot;text&quot; placeholder=&quot;First Name&quot;  /&gt; 
+                    &lt;div id=&quot;errFirst&quot;&gt;&lt;/div&gt;    
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label for=&quot;phonenumber&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Phone Number: &lt;/label&gt;
+                    &lt;input type=&quot;text&quot; name=&quot;mobile&quot; class=&quot;form-control phone&quot; placeholder=&quot;Mobile Number&quot;/&gt; 
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Email Address: &lt;/label&gt; 
+                    &lt;input class=&quot;form-control&quot; type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Email Address&quot; /&gt;   
+                        &lt;div class=&quot;status&quot; id=&quot;status&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Gender &lt;/label&gt; 
+                &lt;div&gt;
+                  &lt;input type=&quot;radio&quot; name=&quot;gender&quot; id=&quot;male&quot; value=&quot;male&quot; /&gt;&amp;nbsp;Male &amp;nbsp;&amp;nbsp; &lt;input type=&quot;radio&quot; name=&quot;gender&quot; id=&quot;female&quot; value=&quot;female&quot;/&gt;&amp;nbsp;Female
+                &lt;/div&gt;       
+                        &lt;div class=&quot;status&quot; id=&quot;status&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Select City &lt;/label&gt; 
+                &lt;div&gt;
+                  &lt;select class=&quot;form-control&quot; name=&quot;city&quot; id=&quot;city&quot;&gt;
+                  &lt;option hidden=&quot;hidden&quot;&gt;--Select--city--&lt;/option&gt;
+                    &lt;option value=&quot;Kanpur&quot;&gt;Kanpur&lt;/option&gt;
+                      &lt;option value=&quot;Lucknow&quot;&gt;Lucknow&lt;/option&gt;
+                        &lt;option value=&quot;Banglour&quot;&gt;Banglour&lt;/option&gt;
+                          &lt;option value=&quot;Delhi&quot;&gt;Delhi&lt;/option&gt;
+                            &lt;option value=&quot;Mumbai&quot;&gt;Mumbai&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;       
+                        &lt;div class=&quot;status&quot; id=&quot;status&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; User name:  &lt;small&gt;This will be your login user name&lt;/small&gt; &lt;/label&gt; 
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;User Name&quot; name=&quot;username&quot; id=&quot;username&quot;/&gt;  
+                        &lt;div id=&quot;errLast&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Password: &lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; name=&quot;password&quot; id=&quot;password&quot; placeholder=&quot;Password&quot; /&gt; &lt;/p&gt;
+
+                &lt;label for=&quot;password&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Password Confirm: &lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control inputpass&quot; name=&quot;repassword&quot; placeholder=&quot;Re-type Password&quot; /&gt;
+                        &lt;span id=&quot;confirmMessage&quot; class=&quot;confirmMessage&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;username&quot;&gt;&lt;span class=&quot;req&quot;&gt;* &lt;/span&gt; Photo &lt;/label&gt; 
+                    &lt;input class=&quot;form-control&quot; type=&quot;file&quot; placeholder=&quot;&quot; name=&quot;image&quot; id=&quot;image&quot; /&gt;  
+                        &lt;div id=&quot;errLast&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Register&quot;&gt;
+            &lt;/div&gt;
+            &lt;/fieldset&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;&lt;!-- ends col-6 --&gt;
+   &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+     
+    </pre>
+    <h3>classCrud.php</h3>
+    <pre class="prettyprint linenums">
+&lt;?php
+include&quot;database.php&quot;; 
+class Classcrud extends dbmodel{
+ 
+  public function insert($tablename,$data_item){
+	if(!empty($tablename) &amp;&amp; !empty($data_item) &amp;&amp; is_array($data_item))
+	{
+	   $colname = implode(&quot;,&quot;,array_keys($data_item));
+	   $colvalue = implode(&quot;&#39;,&#39;&quot;,array_values($data_item));
+	   //print_r($colvalue);exit;
+	   $sql=&quot;INSERT INTO &quot;.$tablename.&quot;(&quot;.$colname.&quot;) VALUES (&#39;&quot;.$colvalue.&quot;&#39;)&quot;;
+	   //echo $sql;exit;
+	   $q = $this-&gt;db-&gt;prepare($sql);
+	   $insert = $q-&gt;execute();
+		 if(!empty($insert))
+		  {
+			return TRUE;  
+		  }
+		  else
+		  {
+			return FALSE;  
+		  }
+	}
+	else
+	{
+	  return false;	
+	} 
+  }	
+}
+?&gt;
+     
+    </pre>
+</div>
+</div>
+</div>

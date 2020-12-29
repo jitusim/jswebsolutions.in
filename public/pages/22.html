@@ -1,0 +1,157 @@
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>First create a table</h3>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+ CREATE TABLE `comment_reply_tbl` (
+  `comment_id` int(11) NOT NULL,
+  `parent_comment_id` int(11) NOT NULL,
+  `comments` varchar(200) NOT NULL,
+  `date` datetime NOT NULL
+) 
+     
+    </pre>
+</div>
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>class_crud.php</h3>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+&lt;?php
+include&quot;database.php&quot;; 
+class Class_crud extends dbmodel{
+ 
+  public function insert($tablename,$data_item){
+	if(!empty($tablename) &amp;&amp; !empty($data_item) &amp;&amp; is_array($data_item))
+	{
+	   $colname = implode(&quot;,&quot;,array_keys($data_item));
+	   $colvalue = implode(&quot;&#39;,&#39;&quot;,array_values($data_item));
+	   //print_r($colvalue);exit;
+	   $sql=&quot;INSERT INTO &quot;.$tablename.&quot;(&quot;.$colname.&quot;) VALUES (&#39;&quot;.$colvalue.&quot;&#39;)&quot;;
+	   //echo $sql;exit;
+	   $q = $this-&gt;db-&gt;prepare($sql);
+	   $insert = $q-&gt;execute();
+		 if(!empty($insert)) {
+			return TRUE;  
+		  }
+		  else
+		  {
+			return FALSE;  
+		  }
+	}
+	else
+	{
+	  return false;	
+	} 
+  }	
+  
+  public function get_data($table , $con , $col){
+    $sql = &quot;SELECT &quot;.$col.&quot; FROM &quot;.$table.&quot; WHERE &quot;.$con;
+	$q = $this-&gt;db-&gt;prepare($sql);
+	$stmt = $q-&gt;execute();
+	$all_comment = $q-&gt;fetchAll();
+	if( count($all_comment) &gt; 0 ){
+	  return $all_comment;
+	}
+	else{
+	 return FALSE; 
+	}
+  }
+  
+  public function get_reply_data($table , $con , $col){
+    $sql = &quot;SELECT &quot;.$col.&quot; FROM &quot;.$table.&quot; WHERE &quot;.$con;
+	$q = $this-&gt;db-&gt;prepare($sql);
+	$stmt = $q-&gt;execute();
+	$all_comment = $q-&gt;fetchAll();
+	$count = $q-&gt;rowCount();
+	if($count &gt; 0 ){
+	  return $all_comment;
+	}
+	else{
+	 return FALSE; 
+	}
+  }
+}
+?&gt;
+     
+    </pre>
+</div>
+</div>
+
+<div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+</div>
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">&lt;div class=&quot;js
+<div margin-bottom:="" padding:="" style=" box-sizing:=">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+    $(document).ready(function(){
+     $(&quot;[data-toggle=tooltip]&quot;).tooltip();
+    });
+
+$(document).ready(function(e) {
+  $(document).on(&#39;click&#39;,&#39;#comment_btn&#39;,function(){
+    var comment = $(&#39;#comment_blog&#39;).val();
+	var parent_id = $(&#39;#parent_id&#39;).val();
+	$.ajax({
+      url: &quot;comment.php&quot;,
+      type: &quot;GET&quot;,           
+      data: {comment:comment , parent_id:parent_id},
+      success: function(response){
+		 location.reload();
+		 //$(&#39;#all_commet&#39;).load(document.URL + &#39; #all_commet&#39;);
+		 //alert(response);
+		 //$(&quot;#state&quot;).html(res);
+		}
+       });
+  });   
+});
+$(document).ready(function(e) {
+    $(&quot;#get_comment&quot;).load(&quot;get_comment.php&quot;, function(responseTxt, statusTxt, xhr){
+        if(statusTxt == &quot;success&quot;)
+           // alert(&quot;External content loaded successfully!&quot;);
+        if(statusTxt == &quot;error&quot;)
+            alert(&quot;Error: &quot; + xhr.status + &quot;: &quot; + xhr.statusText);
+    });
+});
+
+$(document).ready(function(e) {
+  $(document).on(&#39;click&#39;,&#39;.comment_reply_child&#39;,function(){
+   //var comment_box_id = $(this).parent().parent().parent().parent().parent().parent().find(&#39;.commentdiv&#39;).data(&#39;commentdivid&#39;); 
+   alert(comment_box_id);
+	 var comment_reply_parent =  this.id;
+	 var reply_box_count = $(&quot;.message_box&quot;).length;
+	 var html_content =  &#39;&lt;div class=&quot;message_box&quot;&gt;&#39;+
+	                     &#39;&lt;input type=&quot;hidden&quot; name=&quot;parent_id&quot; id=&quot;parent_id&quot; value=&quot;&#39;+ comment_reply_parent +&#39;&quot;  /&gt;&#39;+
+						 &#39;&lt;textarea style=&quot;margin-top:5px;&quot; placeholder=&quot;What are you doing right now?&quot; id=&quot;comment_blog&quot; class=&quot;form-control&quot;&gt;&lt;/textarea&gt;&#39;+ 
+						 &#39;&lt;button style=&quot;margin-top:5px;&quot; type=&quot;button&quot; class=&quot;btn btn-success green&quot; id=&quot;comment_btn&quot; name=&quot;comment_btn&quot;&gt;&lt;i class=&quot;fa fa-share&quot;&gt;&lt;/i&gt; Share&lt;/button&gt;&#39;+
+		                 &#39;&lt;/div&gt;&#39;; 
+	 if( reply_box_count &lt; 1 ){
+		 $(this).next(&#39;.reply_box&#39;).append(html_content);
+	   }
+	 else{
+		  $(&#39;.message_box&#39;).remove();
+		  $(this).next(&#39;.reply_box&#39;).append(html_content);
+	   }  
+	 //$(&quot;#parent_id&quot;).val(comment_reply_parent);
+  });	
+ 
+});
+</pre>
+</div>
+</div>

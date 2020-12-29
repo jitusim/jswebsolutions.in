@@ -1,0 +1,182 @@
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>First create a table</h3>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+ CREATE TABLE `blogpost` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `crDate` varchar(20) NOT NULL,
+  `crEditdate` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+     
+    </pre>
+</div>
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>database.php</h3>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+&lt;?php 
+class Database
+{
+private static $dbName = &#39;demo&#39;;
+private static $dbHost = &#39;localhost&#39;;
+private static $dbUsername = &#39;xxxxx&#39;;
+private static $dbUserPassword = &#39;xxxxx&#39;;
+private static $lan = &#39;utf8&#39;;
+private static $con = null;
+
+   public function _construct(){
+	 die(&#39;Init function is not allowed&#39;);
+	}
+
+   public static function connect(){
+	 if( null == self::$con){
+	   try{
+		   self::$con = new PDO(&quot;mysql:host=&quot;.self::$dbHost.&quot;;&quot;.&quot;dbname=&quot;.self::$dbName, self::$dbUsername, self::$dbUserPassword);
+		    self::$con-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		   }
+		   	 
+		catch(PDOException $e){
+         die($e-&gt;getMessage());      			
+    	}
+	 }   
+	
+	return self::$con;
+	} 
+	public static function disconnect(){
+	  self::$con = null;	
+	}
+		
+}
+class paging{
+  public function paging_data($table_name , $wherecaluse  , $perpage ){
+  	$pdo = database::connect();
+	$sql = &quot;SELECT count(*) FROM $table_name where $wherecaluse&quot;;
+	$stmt_paging = $pdo-&gt;prepare($sql);
+	$stmt_paging-&gt;execute();
+	$number = $row_paging = $stmt_paging-&gt;fetch();
+	$total_page=$number[0];
+	$totalpages = ceil($total_page/$perpage);
+	return $totalpages;
+  }
+}
+    
+?&gt;
+     
+    </pre>
+</div>
+</div>
+
+<div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+</div>
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>index.php</h3>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 10px;">
+<pre>
+     
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Pagination using php &lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php
+include&quot;database.php&quot;;
+$table_name=&quot;blogpost&quot;;
+$wherecaluse=&quot;1&quot;; 
+$obj = new paging();
+$page = (isset($_GET[&#39;page&#39;]) &amp;&amp; $_GET[&#39;page&#39;] &gt; 0) ? (int)$_GET[&#39;page&#39;] : 1;
+$perpage = 5;
+$limit = ($page &gt; 0) ? ($page*$perpage) - $perpage : 0;
+$pdo = Database::connect();
+$paging_result = $obj-&gt;paging_data($table_name,$wherecaluse , $perpage); 
+?&gt;
+&lt;div class=&quot;container&quot;&gt;
+ &lt;table class=&quot;table table-striped table-bordered&quot; style=&quot;margin-top:120px;&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr class=&quot;danger&quot;&gt;
+                      &lt;th&gt;SN&lt;/th&gt;
+                      &lt;th&gt;Title &lt;?php echo $totalpages; ?&gt;&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                  &lt;?php
+				   $pdo=Database::connect();
+                   $sql = &quot;SELECT * FROM blogpost ORDER by id DESC LIMIT {$limit} , {$perpage} &quot;;
+				   $stmt = $pdo-&gt;prepare($sql);
+				   $stmt-&gt;execute();
+				   if($stmt)
+				   {
+					  $sn=1;
+					   while($row = $stmt-&gt;fetch(PDO::FETCH_ASSOC))
+					   {
+						?&gt;
+                        &lt;tr&gt;
+                        	&lt;td&gt;&lt;?php echo $sn; ?&gt;&lt;/td&gt;
+                            &lt;td&gt;&lt;?php echo $row[&#39;title&#39;]; ?&gt;&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;?php   
+						$sn++;
+					   }
+				   }
+				   else
+				   {
+					  ?&gt;
+                      &lt;tr&gt;&lt;td colspan=&quot;6&quot;&gt;&lt;P class=&quot;alert alert-info&quot;&gt;No Record Found&lt;/P&gt;&lt;/td&gt;&lt;/tr&gt;
+                      &lt;?php 
+				   }
+				   Database::disconnect();
+                  ?&gt;
+                  &lt;/tbody&gt;
+            &lt;/table&gt;   
+    
+&lt;/div&gt;
+            &lt;div class=&quot;container&quot; style=&quot;margin-top:20px;&quot;&gt;
+            &lt;div class=&quot;col-sm-12 col-lg-12&quot;&gt;
+              &lt;ul style=&quot;list-style-type:none;&quot;&gt;
+               &lt;li style=&quot;display:inline-block;&quot;&gt;&lt;a href=&quot;?page=&lt;?php $pagep=$page-1; echo $pagep;  ?&gt;&quot; class=&quot;btn btn-default&quot;&gt; &lt;&lt; Pre&lt;/a&gt;&lt;/li&gt;
+			  &lt;?php
+                $totalpages;
+				for($i=1; $i&lt;=$paging_result; $i++)
+				{
+				  ?&gt;
+				  &lt;li style=&quot;display:inline-block;&quot;&gt;&lt;a href=&quot;?page=&lt;?php echo $i; ?&gt;&quot; class=&quot;btn btn-default&quot;&gt;&lt;?php echo $i; ?&gt;&lt;/a&gt;&lt;/li&gt;
+				  &lt;?php	
+				}
+			  ?&gt; 
+              &lt;li style=&quot;display:inline-block;&quot;&gt;&lt;a href=&quot;?page=&lt;?php $pagen = $page+1; echo $pagen;?&gt;&quot; class=&quot;btn btn-default&quot;&gt;next &gt;&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;          
+&lt;/body&gt;
+&lt;/html&gt;       
+  
+     
+    </pre>
+</div>
+</div>
+</div>

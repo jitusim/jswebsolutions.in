@@ -1,0 +1,111 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<p class="p_for_post">
+   create a attractive element listing design using html , bootstrap and css . and i have include one more thing , lode more functionality with the help of jquery . 
+</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;List element design using bootstrap and css | Jswebsolutions.in | Live Demo&lt;/title&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;http://jswebsolutions.in/public/uploadsFiles/favicon_icon.png&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css&quot;&gt;
+  &lt;link href=&quot;../assets/css/site.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;col-sm-offset-2 col-sm-6&quot;&gt;
+     &lt;ul class=&quot;loadMore list-group&quot;&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+     &lt;a href=&quot;javascript::void()&quot;  name=&quot;load_more&quot; id=&quot;load_more&quot; class=&quot;btn btn-warning&quot;&gt;Load More&lt;/a&gt;
+     &lt;/div&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<pre class="prettyprint linenums">
+  .loadMore{ list-style-type:none; }
+  .loadMore li{ display:none; padding:10px; background-color:#093; border-bottom:#039 1px solid; border-radius:5px; margin-bottom:3px;; }
+  .loadMore li::before{  content:"Load More Content"; color:#FFF; font-weight:600; }
+</pre>
+<pre class="prettyprint linenums">
+ $(document).ready(function(e) {
+     var limit = 5;
+	 $(&quot;.loadMore li&quot;).slice(0, limit).show();
+	 $(document).on('click','#load_more',function(e){
+         limit += 5;
+		 e.preventDefault();
+	     $(&quot;.loadMore li&quot;).slice(0, limit).show();
+	 });
+	 //var lenght_name =  $(&quot;.loadMore li&quot;).length;
+  });
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+</div>
+</div>
+</div>

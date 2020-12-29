@@ -1,0 +1,72 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<p class="p_for_post">In the object oriented programming have many magic method . Whose uses is different . According to requiremt we can use them different place . __desctruct() magic method one of them . in this tutorials we are going to learn about  __desctruct() method </p>
+<p class="p_for_post">Syntax of __desctruct() method , Working of __desctruct() method . how to use __desctruct() method , when __desctruct() call . so lets start . </p>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<p class="p_for_post">Syntax of __desctruct() method . </p>
+<pre class="prettyprint linenums">
+&lt;?php
+ class dbmodel{
+    public function __destruct(){
+ 		/* write code here */
+	}
+ }
+?&gt;
+</pre>
+<p class="p_for_post">__destruct method is opposite  __construct method . __destruct method call  automatically when then object of class work completly end then __destruct() method call automatically . __destruct never receive any type of parameter . </p>
+<pre class="prettyprint linenums">
+&lt;?php
+ class dbmodel{
+	
+	public $welcome = '';
+	public function __construct($welcome){
+ 		$this-&gt;welcome = $welcome;
+		echo $this-&gt;welcome.&quot;&lt;br /&gt;&quot;;
+	}
+	
+	 public function insert(){
+	    echo &quot;you are inside in insert method . &lt;br /&gt;&quot;; 
+     }
+	 	
+	public function __destruct(){
+ 		echo &quot;this message inside destruct method !!! &lt;br /&gt;&quot;;
+	} 
+	 
+ }
+ $db_obj = new dbmodel(&quot;hello , welcome in jswebsolutions .&quot;);
+ $db_obj-&gt;insert();
+?&gt;
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<p class="p_for_post">Output : </p>
+<pre class="prettyprint linenums">
+hello , welcome in jswebsolutions .
+you are inside in insert method .
+this message inside destruct method !!!
+</pre>
+</div> 
+</div>
+</div>

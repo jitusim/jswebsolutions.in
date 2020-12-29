@@ -1,0 +1,84 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<p class="p_for_post">All method in php which start with double underscore they are called magic method in php . first we learn __construct() method . here we will learn about __construct() method like  Syntax of __construct() method ,   use of construct method , how to initialized a class properties using construct method . </p>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<p class="p_for_post">Syntax of __construct() method . </p>
+<pre class="prettyprint linenums">
+&lt;?php
+ class dbmodel{
+    public function __construct(){
+ 		/* write code here */
+	}
+ }
+?&gt;
+</pre>
+<p class="p_for_post">Construct method execute automatically when the object of class will initialize . Lets see and understand with a example . </p>
+<pre class="prettyprint linenums">
+&lt;?php
+ class dbmodel{
+  
+	public function __construct(){
+ 		echo &quot;you are inside in construct method &lt;br /&gt;&quot;;
+	}
+	
+	 public function insert(){
+	    echo &quot;you are inside in insert method&quot;; 
+     }	
+ }
+ $db_obj = new dbmodel;
+ $db_obj-&gt;insert();
+?&gt;
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<p class="p_for_post">Here in this example we define a "dbmodel" class and inside this class create a construct  and insert method .  So we prepare all code . Now we create object of "dbmodel" class and access the insert method . when call the insert method , then construct method is made automatically with the insert method . and get the response like below .  </p>
+<p class="p_for_post">Output : </p>
+<pre class="prettyprint linenums">
+you are inside in construct method
+you are inside in insert method
+</pre>
+<p class="p_for_post"> lets see the next example and understand . we can initialize the class properties using __construct() method . </p>
+<pre class="prettyprint linenums">
+&lt;?php
+ class dbmodel{
+
+	public $welcome = '';
+	
+	public function __construct($welcome){
+ 		$this-&gt;welcome = $welcome;
+		echo $this-&gt;welcome.&quot;&lt;br /&gt;&quot;;
+	}
+	
+	 public function insert(){
+	    echo &quot;you are inside in insert method&quot;; 
+     }	
+ }
+ $db_obj = new dbmodel(&quot;hello , welcome in jswebsolutions .&quot;);
+ $db_obj-&gt;insert();
+?&gt;
+</pre>
+</div> 
+</div>
+</div>

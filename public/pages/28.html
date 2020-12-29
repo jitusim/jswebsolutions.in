@@ -1,0 +1,107 @@
+<div class="container" style="box-sizing: border-box; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; width: 1170px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+<p>In this post , we know how to implement multiple select drop down list in our project . Often we need in every project to select multiple value like as a multiple hobbies , multiple country , multiple specialty etc. There we implement multiple select drop down list using Jquery , Bootstrap .</p>
+
+<p>In this article we need to one css file&nbsp;<span style="color:rgb(0, 153, 51)">( multi_select.min.css )</span>&nbsp;and three js file&nbsp;<span style="color:rgb(0, 153, 51)">( multi_select.min.js )</span>&nbsp;,&nbsp;<span style="color:rgb(0, 153, 51)">( jquery.min.js )</span>&nbsp;,&nbsp;<span style="color:rgb(0, 153, 51)">( custom.js )</span>&nbsp;. These file will include in our index.html file .</p>
+</div>
+</div>
+</div>
+
+<div class="container" style="box-sizing: border-box; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; width: 1170px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+<h3>index.php</h3>
+
+<div style="box-sizing: border-box; padding: 0px;">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;Select multiple Dropdown list using jQuery&lt;/title&gt;
+&lt;/head&gt;
+&lt;link href=&quot;multi_select.min.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+&lt;body&gt;
+  &lt;div class=&quot;container&quot; style=&quot;margin-top:100px;&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-sm-6&quot;&gt;
+          &lt;label&gt;Select Multiple Country&lt;/label&gt;
+          &lt;select data-placeholder=&quot;Choose a Country...&quot; class=&quot;chosen-select&quot; multiple tabindex=&quot;4&quot;&gt;
+            &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+            &lt;option value=&quot;United States&quot;&gt;United States&lt;/option&gt;
+            &lt;option value=&quot;United Kingdom&quot;&gt;United Kingdom&lt;/option&gt;
+            &lt;option value=&quot;Afghanistan&quot;&gt;Afghanistan&lt;/option&gt;
+            &lt;option value=&quot;Aland Islands&quot;&gt;Aland Islands&lt;/option&gt;
+            &lt;option value=&quot;Albania&quot;&gt;Albania&lt;/option&gt;
+            &lt;option value=&quot;Algeria&quot;&gt;Algeria&lt;/option&gt;
+            &lt;option value=&quot;American Samoa&quot;&gt;American Samoa&lt;/option&gt;
+            &lt;option value=&quot;Andorra&quot;&gt;Andorra&lt;/option&gt;
+            &lt;option value=&quot;Angola&quot;&gt;Angola&lt;/option&gt;
+            &lt;option value=&quot;Anguilla&quot;&gt;Anguilla&lt;/option&gt;
+            &lt;option value=&quot;Antarctica&quot;&gt;Antarctica&lt;/option&gt;
+            &lt;option value=&quot;Antigua and Barbuda&quot;&gt;Antigua and Barbuda&lt;/option&gt;
+            &lt;option value=&quot;Argentina&quot;&gt;Argentina&lt;/option&gt;
+            &lt;option value=&quot;Armenia&quot;&gt;Armenia&lt;/option&gt;
+            &lt;option value=&quot;Aruba&quot;&gt;Aruba&lt;/option&gt;
+            &lt;option value=&quot;Australia&quot;&gt;Australia&lt;/option&gt;
+            &lt;option value=&quot;Austria&quot;&gt;Austria&lt;/option&gt;
+            &lt;option value=&quot;Azerbaijan&quot;&gt;Azerbaijan&lt;/option&gt;
+            &lt;option value=&quot;Bahamas&quot;&gt;Bahamas&lt;/option&gt;
+            &lt;option value=&quot;Bahrain&quot;&gt;Bahrain&lt;/option&gt;
+            &lt;option value=&quot;Bangladesh&quot;&gt;Bangladesh&lt;/option&gt;
+            &lt;option value=&quot;Barbados&quot;&gt;Barbados&lt;/option&gt;
+            &lt;option value=&quot;Belarus&quot;&gt;Belarus&lt;/option&gt;
+            &lt;option value=&quot;Belgium&quot;&gt;Belgium&lt;/option&gt;
+            &lt;option value=&quot;Belize&quot;&gt;Belize&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;    
+      &lt;div class=&quot;col-sm-6&quot;&gt;&lt;/div&gt;  
+    &lt;/div&gt;  
+      
+  &lt;/div&gt;    
+&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt; 
+&lt;script src=&quot;multi_select.min.js&quot;&gt;&lt;/script&gt;     
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+     
+    </pre>
+</div>
+
+<div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+</div>
+
+<div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+</div>
+</div>
+
+<div class="container" style="box-sizing: border-box; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; width: 1170px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<h3>custom.js</h3>
+
+<div style="box-sizing: border-box; padding: 0px;">
+<pre>
+var config = {
+  &#39;.chosen-select&#39;           : {},
+  &#39;.chosen-select-deselect&#39;  : { allow_single_deselect: true },
+  &#39;.chosen-select-no-single&#39; : { disable_search_threshold: 10 },
+  &#39;.chosen-select-no-results&#39;: { no_results_text: &#39;Oops, nothing found!&#39; },
+  &#39;.chosen-select-rtl&#39;       : { rtl: true },
+  &#39;.chosen-select-width&#39;     : { width: &#39;95%&#39; }
+}
+for (var selector in config) {
+  $(selector).chosen(config[selector]);
+}
+     
+    </pre>
+
+<div>&nbsp;</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<p class="p_for_post">
+  In this tutorials we will learn how to get current complete url of a website using php . some times we have to need implement this functionality in our web application . If HTTPS enable by your server then append https 
+otherwise append http . yet by use $_SERVER['HTTP_HOST'] you get  the current domain name 
+  </p>
+  <p class="p_for_post">Use the $_SERVER[&#39;HTTPS&#39;] you can check SSL enable in your domain or not . if SSL enabled in domain you can store "https" otherwise "http".</p>
+<p class="p_for_post">
+Then append url regular symbol <span style="color:rgb(0, 153, 51)"><strong>://</strong></span>
+  Then append http host name . Host name is a domain name .  yet by use $_SERVER['HTTP_HOST'] you get  the current domain name  &nbsp;. if you want to get complete current url you can use $_SERVER[&#39;REQUEST_URI&#39;] . $_SERVER[&#39;REQUEST_URI&#39;] method is used for get requested parameter 
+</p>
+
+<pre class="prettyprint linenums">
+&lt;?php 
+if(isset($_SERVER[&#39;HTTPS&#39;]) &amp;&amp; $_SERVER[&#39;HTTPS&#39;] === &#39;on&#39;) 
+    $complete_url = &quot;https&quot;; 
+else
+    $complete_url = &quot;http&quot;; 
+  
+// Here append the common URL characters. 
+$complete_url .= &quot;://&quot;; 
+  
+// Append the host(domain name, ip) to the URL. 
+$complete_url .= $_SERVER[&#39;HTTP_HOST&#39;]; 
+ 
+// Append the requested resource location to the URL 
+$complete_url .= $_SERVER[&#39;REQUEST_URI&#39;];   
+// Print the link 
+echo $complete_url; 
+?&gt; 
+</pre>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,140 @@
+<style>
+.p_for_post{ font-size:18px; font-weight:500;  }
+</style>
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+    <p class="p_for_post">
+        Hello , friends in this article we will show you . how to delete multiple record from database . Mostly we have to need delete single record  but according to project size some times we have to need delete multiple record from database .   
+        
+    </p>
+     <p class="p_for_post">
+          So in this this tutorials we learn how to delete multiple record using php and mysql database . By the way we can use the for loop or foor each loop for delete multiple record . but here we use something different . We are using In clause for delete multiple record . lets start 
+    </p>
+    
+<h3>index.php</h3>
+<p class="p_for_post">First you have to create index.php file. inside the file you will create a form with POST method . Inside the form we will create a checkbox name = "select_all" and id = "select_all" </p>
+<code>
+<pre class="prettyprint linenums">
+  &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+   &lt;div class=&quot;row&quot;&gt;
+     &lt;div class=&quot;col-sm-8&quot;&gt;
+        &lt;button class=&quot;btn btn-danger&quot; type=&quot;submit&quot; name=&quot;delete_record&quot; id=&quot;delete_record&quot; style=&quot;margin-bottom:10px;&quot;&gt;&lt;i class=&quot;glyphicon glyphicon-trash&quot;&gt;&lt;/i&gt;&amp;nbsp;Delete All&lt;/button&gt; 
+        &lt;?php 
+          if(isset($_SESSION['msg'])){
+              echo  $_SESSION['msg'];
+          }
+	   	?&gt;
+       &lt;table class=&quot;table table-striped table-bordered&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr class=&quot;danger&quot;&gt;
+                      &lt;th&gt;&lt;input type=&quot;checkbox&quot; name=&quot;select_all&quot; id=&quot;select_all&quot;&gt;&lt;/th&gt;
+                      &lt;th&gt;SN&lt;/th&gt;
+                      &lt;th&gt;Title &lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody&gt;
+                  &lt;?php
+                  $sql = &quot;SELECT * FROM multiple_record_countries ORDER by id DESC LIMIT {$limit} , {$perpage} &quot;;
+				   $result = $obj-&gt;execute_query($sql); 
+				   if($result != FALSE){
+					  $sn = (($_GET['page'] - 1) * 20 ) + 1;
+					   foreach($result as $row){
+						?&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;id[]&quot; class=&quot;post_checkbox&quot; value=&quot;&lt;?php echo $row['id']; ?&gt;&quot;&gt;&lt;/td&gt;
+                        	&lt;td&gt;&lt;?php echo $sn; ?&gt;&lt;/td&gt;
+                            &lt;td&gt;&lt;?php echo $row['name']; ?&gt;&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;?php   
+						$sn++;
+					   }
+				   }
+				   else{
+					  ?&gt;
+                   &lt;tr&gt;
+                     &lt;td colspan=&quot;6&quot;&gt;
+                       &lt;P class=&quot;alert alert-info&quot;&gt;No Record Found&lt;/P&gt;
+                     &lt;/td&gt;
+                   &lt;/tr&gt;
+                      &lt;?php 
+				   }
+                  ?&gt;
+                  &lt;/tbody&gt;
+            &lt;/table&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+   
+ &lt;/form&gt;
+</pre>
+</code>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<p class="p_for_post">Use this jquery code for checked and unchecked checkbox . If you want to delete a specific record you can checked perticular checkbox . If you want to delete multiple record you can checked SELECT ALL checkbox .  </p>
+<pre class="prettyprint linenums">
+$(document).ready(function(e) {
+  $(document).on('click','#select_all',function(e){
+	  if( $(this).is(":checked") ){
+		  $(".post_checkbox").prop('checked',true);
+		}
+	  else{
+		  $(".post_checkbox").prop('checked',false); 
+		}	
+  });
+});
+    </pre>
+<p class="p_for_post">When you click the submit button then you have to follow this procedure . If you checked Select All button and submit the form then delete all single page record .</p>
+<pre class="prettyprint linenums">
+$table_name = &quot;multiple_record_countries&quot;;
+if(isset($_POST['delete_record'])){
+    if(count($_POST['id']) &gt; 0){
+        $id_arr = implode(',' , $_POST['id']);
+		$where_con = &quot;`id`  IN (&quot;.$id_arr.&quot;)&quot;;
+		$delete_response = $obj-&gt;delete_multiple_record($table_name , $where_con); 
+		if($delete_response){
+		    $_SESSION['msg'] = $obj-&gt;has_message('Record delete successful !!!');
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+		  }
+	 }
+	else{
+	  header('Location: ' . $_SERVER['HTTP_REFERER']);
+	 }
+  }
+</pre>
+
+<pre class="prettyprint linenums">
+&lt;?php
+   public function delete_multiple_record($table_name , $con){
+    $sql = &quot;DELETE FROM &quot;.$table_name.&quot; WHERE &quot;.$con;
+	$q = $this-&gt;db-&gt;prepare( $sql );
+	$stmt = $q-&gt;execute();
+	if( $stmt ) { return TRUE;  }
+	else{ return FALSE;  }  
+  }
+?&gt;
+</pre>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+</div>
+</div>
+</div>

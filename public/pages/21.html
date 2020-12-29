@@ -1,0 +1,121 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: ">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<h3>index.php</h3>
+</div>
+
+<div style="box-sizing: border-box; padding: 0px;">
+<pre>
+     
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Strong Password Validation using Javascript&lt;/title&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot; style=&quot;margin-top:50px;&quot;&gt;
+ &lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-sm-3&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;col-sm-6&quot;&gt;
+   &lt;label&gt;Password&lt;/label&gt;
+   &lt;div&gt;
+   &lt;input name=&quot;password&quot; id=&quot;password&quot; type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Enter your password...&quot; value=&quot;&quot; onkeyup=&quot;CheckPasswordStrength()&quot;  required=&quot;required&quot; /&gt;
+   &lt;/div&gt; 
+   	&lt;span id=&quot;password_strength&quot;&gt;&lt;/span&gt;
+    &lt;div class=&quot;row&quot; style=&quot;margin-top:20px;&quot;&gt;
+      &lt;ol&gt;
+        &lt;li&gt;At least one capital letter&lt;/li&gt;
+        &lt;li&gt;At least one special Character&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+    &lt;div class=&quot;col-sm-3&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+     
+    </pre>
+</div>
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<h3>custom.js</h3>
+</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 0px;">
+<pre>
+     
+&lt;script&gt;
+/*--Check password Strenght script start--*/
+function CheckPasswordStrength() {
+	var password_strength = document.getElementById(&quot;password_strength&quot;);
+	var password = document.getElementById(&#39;password&#39;).value;
+	//TextBox left blank.
+	if (password.length == 0) {
+		password_strength.innerHTML = &quot;&quot;;
+		return;
+	}
+	//Regular Expressions.
+	var regex = new Array();
+	regex.push(&quot;[A-Z]&quot;); //Uppercase Alphabet.
+	regex.push(&quot;[a-z]&quot;); //Lowercase Alphabet.
+	regex.push(&quot;[0-9]&quot;); //Digit.
+	regex.push(&quot;[$@$!%*#?&amp;]&quot;); //Special Character.
+	var passed = 0;
+	//Validate for each Regular Expression.
+	for (var i = 0; i &lt; regex.length; i++) {
+		if (new RegExp(regex[i]).test(password)) {
+			passed++;
+		}
+	}
+	//Validate for length of Password.
+	if (passed &gt; 2 &amp;&amp; password.length &gt; 8) {
+		passed++;
+	}
+
+	//Display status.
+	var color = &quot;&quot;;
+	var strength = &quot;&quot;;
+	switch (passed) {
+		case 0:
+		case 1:
+			strength = &quot;&lt;strong&gt;Weak&lt;/strong&gt;&quot;;
+			color = &quot;red&quot;;
+			break;
+		case 2:
+			strength = &quot;&lt;strong&gt;Good&lt;/strong&gt;&quot;;
+			color = &quot;darkorange&quot;;
+			break;
+		case 3:
+		case 4:
+			strength = &quot;&lt;strong&gt;Strong&lt;/strong&gt;&quot;;
+			color = &quot;green&quot;;
+			break;
+		case 5:
+			strength = &quot;&lt;strong&gt;Very Strong&lt;/strong&gt;&quot;;
+			color = &quot;darkgreen&quot;;
+			break;
+	}
+	password_strength.innerHTML = strength;
+	password_strength.style.color = color;
+}
+/*---Check password strenght script End----*/			
+&lt;/script&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div style="box-sizing: border-box; padding: 0px;">
+<pre>
+
+&nbsp;</pre>
+</div>

@@ -1,0 +1,60 @@
+<h3>index.php</h3>
+
+<div style="box-sizing: border-box; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; padding: 0px;">
+<pre>
+     
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-US&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;title&gt; JavaScript Reverse Countdown Timer  &lt;/title&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+    &lt;!------ Include the above in your HEAD tag ----------&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css&quot; /&gt;
+&lt;style&gt;
+ h1{ font-size:52px; font-weight:900; font-family:Verdana, Geneva, sans-serif;  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;body_page&quot; style=&quot;margin-top:10px; margin-bottom:10px;&quot;&gt;
+&lt;div class=&quot;container-fluid&quot;&gt;
+ &lt;div class=&quot;row&quot;&gt;
+   &lt;div id=&quot;&quot;&gt;
+     &lt;p&gt;&lt;/p&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;col-sm-12 col-lg-12&quot;&gt;
+      &lt;center&gt;
+        &lt;h1 id=&quot;demo&quot;&gt;&lt;/h1&gt;
+      &lt;/center&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var countDownDate = new Date(&quot;Jan 1, 2019 00:00:00&quot;).getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // Display the result in the element with id=&quot;demo&quot;
+  document.getElementById(&quot;demo&quot;).innerHTML = days + &quot; days :&quot; + hours + &quot; hour :&quot;
+  + minutes + &quot; min. :&quot; + seconds + &quot; sec.&quot;;
+  if (distance &lt; 0) {
+    clearInterval(x);
+    document.getElementById(&quot;demo&quot;).innerHTML = &quot;EXPIRED&quot;;
+  }
+}, 1000);
+&lt;/script&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+     
+    </pre>
+</div>

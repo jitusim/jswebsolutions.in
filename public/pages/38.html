@@ -1,0 +1,76 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<p class="p_for_post">
+   In this tutorials we will learn about middleware in laravel framework . Directory of middleware and where we register middleware in laravel project . 
+   When you install your laravel project . Middleware directory create in your <strong> App\Http\ </strong>  folder .  
+</p>
+<br />
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<br />
+<img src="<?php echo url('public/image/middleware_directory.PNG') ?>" />
+<br /> <br />
+<p class="p_for_post">
+  Into the Middleware folder you can create your customized middleware as per you requirement. Like below we are create a middleware for website redirect to <strong> http:// </strong> to <strong> https:// .<strong>   
+</p>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<br />
+<pre class="prettyprint linenums">
+&lt;?php
+namespace App\Http\Middleware;
+use Closure;
+use Illuminate\Support\Facades\App;
+
+class HttpsProtocol {
+
+    public function handle($request, Closure $next){
+            if (!$request-&gt;secure() &amp;&amp; App::environment() === 'production') {
+                return redirect()-&gt;secure($request-&gt;getRequestUri());
+            }
+
+            return $next($request); 
+    }
+}
+?&gt;
+</pre>
+<p class="p_for_post">
+  when you are create a middleware as per your requirement . Then you have to register your middleware in <strong> Kernal.php </strong> file . Kernal.php file find inside Http folder . and register as per you convenience .      
+</p>
+<!--In article ads-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4152597108794624"
+     data-ad-slot="6887541390"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!--In article ads-->
+<br />
+</div>
+</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+<p class="p_for_post">
+  Each website and web application we have to need connect with a database . in this tutorials we learn How to connect a MYSQL PDO database in php .  We have  many way to connect a mysql database in php . 
+     First we have create a <strong>dbmodel</strong> Class . and define other parameter like dbhost , dbusername , dbpassword , dbname .
+     <br />
+     create connection string in construct function .
+</p>
+<pre class="prettyprint linenums">
+&lt;?php
+ class dbmodel{
+    private $dbHost     = &quot;localhost&quot;;
+    private $dbUsername = &quot;root&quot;;
+    private $dbPassword = &quot;demo&quot;;
+    private $dbName = &quot;demo&quot;;
+	public function __construct()
+	{
+ 		try {
+          $conn = new PDO(&quot;mysql:host=&quot;.$this-&gt;dbHost.&quot;;dbname=&quot;.$this-&gt;dbName, $this-&gt;dbUsername, $this-&gt;dbPassword);
+         // set the PDO error mode to exception
+          $conn-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $this-&gt;db = $conn;
+		  //echo &quot;Connected successfully&lt;br /&gt;&quot;; 
+            }
+          catch(PDOException $e){
+             echo &quot;Connection failed: &quot; . $e-&gt;getMessage();
+           }
+	}
+ }
+?&gt;
+</pre>
+</div>
+</div>
+</div>
