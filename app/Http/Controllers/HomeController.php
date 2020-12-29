@@ -38,16 +38,7 @@ class HomeController extends Controller{
 		}
 	  }
 	  /*End*/
-	  if($page_slug == "ajax"){
-	      $page = "ajax";
-	      $data['title'] = "PHP - Tutorials , php project , live demo , download script , php with ajax , php with mysql pdo";
-		  $data['post'] = Post::get_post(['ajax_type'=>1]);
-	  }
-	  if($page_slug == "live_demo"){
-	       $page = "live_demo";
-           $data['post'] = Post::get_post(); 
-      }
-      if($page_slug == "hire-me"){
+	  if($page_slug == "hire-me"){
          $page = $page_slug;
       }
       if(in_array($page_slug , ["offers_deal" , "term_and_condition" , "privacy_policy" , "about" , "contact_us"])){

@@ -3,63 +3,36 @@
 <div  class="pageBody boxMain">
 <div class="container">
   <div class="row">
-     <div class="col-sm-8">
-       <div class="panel-body">
-           			  	@forelse($posts as $post)
-						   <div class="row panel panel-default padding_div"> 
-                         @if(!empty($post->image))
-							<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-				              <img src="<?php echo url("public/uploadsFiles/postImage/$post->image"); ?>" alt="create ,Insert ,update,delete Opearation" class="img-thumbnail img-responsive">
-			                </div>
-                         @endif 
-                       <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-				        <h1 class="titleList"><?php if(!empty($post->title))echo $post->title; ?></h1>
-                        <p class="text-muted postDate">By <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                         <?php echo sHelper::get_user_detail($post->user_id); ?>                         |
-                          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
-						 <?php if(!empty($post->updated_at))echo date("d/m/Y", strtotime($post->updated_at)); ?></p>
-						<p class="postDescription"><?php if(!empty($post->description)) echo substr($post->description , 0 , 300); ?> [...]</p>
-					   <div>
-                          <a target="_blank" href="<?php echo url("post/$post->title_url"); ?>" class="btn btn-default">Read more...</a>
-                          <?php
-                           if(!empty($post->demoUrl)){
-                               ?>
-                                 <a target="_blank" href="<?php echo $post->demoUrl; ?>" class="btn btn-default">See Demo</a>
-                               <?php
-                           }
-                          ?>
-                       <ul class="shareListing">
-                         <li><a target="_blank" href="https://www.facebook.com/sharer.php?u=http://jswebsolutions.in/blogPost/<?php echo $post->title; ?>"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                          <li><a href="https://plus.google.com/share?url=http://jswebsolutions.in/blogPost/<?php echo $post->title; ?>" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-                       </ul>
-                       </div>
-			          </div>
-                      </div>
-                        @empty
-                        @endforelse
-                          <!--In feed ads-->
-                           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                            <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-format="fluid"
-                             data-ad-layout-key="-fb+5w+4e-db+86"
-                             data-ad-client="ca-pub-4152597108794624"
-                             data-ad-slot="8942859090"></ins>
-                            <script>
-                             (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                             <!--In feed ads-->
-                     {{ $posts->links() }} 
-                    </div>
-     </div>
-     <div class="col-sm-4">
-      <div class="panel-body">
-        @include('front.component.tags') 
-        @include('front.component.index_ads')
-	    @include('front.component.popular_post') 
-		   {{-- @include('front.component.newsletter') --}}
-        @include('front.component.php_function')
+     <div class="col-sm-12">
+       <div class="panel-body">			
+        <div class="row panel panel-default padding20"> 
+          <div class="col-xs-12 col-sm-12 col-md-6">
+            <center>
+              <img src="{{ url('public/image/jitendra_sahu.jpeg') }}" class="img img-responsive img-circle" style="width: 200px;" />
+               <h5 class="card-title">Jitendra sahu</h5>
+            </center>
+          </div>
+           <div class="col-xs-12 col-sm-12 col-md-6">
+              <center>
+               <img src="{{ url('public/image/akash-maurya.jpg') }}" class="img img-responsive img-circle" style="width: 200px;" />
+               <h5 class="card-title">Akash Maurya</h5>
+              </center>
+          </div>
         </div>
+      </div>
+     </div>
+  </div>
+  <div class="row">
+     <div class="col-sm-12">
+       <div class="panel-body">			
+        <div class="row panel panel-default padding20"> 
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <p class="fontsize20">
+              JS Web Solutions is one of the reputed website designing & software development companies in Kanpur. Originally , JS Web Solutions was started in 2017 by Jitendra Sahu. Jitendra Sahu is one of the most experienced website developers in Kanpur having the ability to develop complex web applications. Jitendra has 4+ years of experience in website development industry. Jitendra has ability to lead a powerful development team as well. In Dec 2020, Akash Maurya took charge of JS Web Solutions and take the company to the next level. Akash Maurya is one of the most experienced web developers, digital marketing experts and software developers in Kanpur. Akash Maurya has 7+ years of experience in Web/Soft. Development & 4+ years of experience in Digital Marketing Industry. Now both of the leaders are working to grow JS Web Solutions.
+              </p>
+          </div>
+        </div>
+      </div>
      </div>
   </div>
 </div>

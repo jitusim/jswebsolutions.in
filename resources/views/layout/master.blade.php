@@ -78,34 +78,28 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown {{ (request()->is('')) ? 'active' : '' }}">
-                                  <a href="<?php echo url(""); ?>" role="button">HOME</a>
+                                  <a href="<?php echo url(""); ?>" role="button">Overview</a>
                             </li>
                             <li class="dropdown {{ (request()->is('html_template')) ? 'active' : '' }}">
-                                  <a href="<?php echo url("html_template"); ?>" role="button">HTML</a>
-                            </li>
-                            <li class="dropdown {{ (request()->is('php_codes')) ? 'active' : '' }}">
-                                <a href="<?php echo url("php_codes"); ?>" role="button">PHP</a>
-                            </li>
-                            <li class="dropdown {{ (request()->is('ajax')) ? 'active' : '' }}">
-                                <a href="<?php echo url("ajax"); ?>" role="button">AJAX</a>
+                                  <a href="<?php echo url("html_template"); ?>" role="button">Services</a>
                             </li>
                             <li  class="dropdown {{ (request()->is('javascript')) ? 'active' : '' }}">
                                 <a href="<?php echo url("javascript"); ?>" role="button">JAVA SCRIPT</a>
                             </li>
                             <li class="dropdown {{ (request()->is('jquery')) ? 'active' : '' }}">
-                                <a href="<?php echo url("jquery"); ?>" role="button">JQUERY</a>
+                                <a href="" role="button">JQUERY</a>
                             </li>
-                            <li class="dropdown {{ (request()->is('laravel')) ? 'active' : '' }}">
-                                <a href="<?php echo url("laravel"); ?>" role="button">LARAVEL </a>
+                            <li class="dropdown multi-level">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<span class="caret"></span></a>
+                                    <ul class="dropdown-menu fade-in" style="transition-duration: 0ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;">
+                                        <li class=""><a href="http://themes.framework-y.com/yellowbusiness/cart/">BS4</a></li>
+                                        <li class=""><a href="<?php echo url("jquery"); ?>">JQUERY</a></li>
+                                        <li class=""><a href="<?php echo url("javascript"); ?>">JavaScript</a></li>
+                                        <li class=""><a href="<?php echo url("php_codes"); ?>">PHP</a> </li>
+                                        <li class=""><a href="<?php echo url("javascript"); ?>">AJAX</a></li>
+                                        <li class=""><a href="<?php echo url("laravel"); ?>">Laravel</a> </li>
+                                    </ul>
                             </li>
-                           <li class="dropdown multi-level">
-                              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<span class="caret"></span></a>
-                                <ul class="dropdown-menu fade-in" style="transition-duration: 0ms; animation-duration: 300ms; transition-timing-function: ease; transition-delay: 0ms;">
-                                <li class=""> <a href="http://themes.framework-y.com/yellowbusiness/shop/">PHP</a>
-                                </li>
-                                <li class=""><a href="http://themes.framework-y.com/yellowbusiness/cart/">BS4</a></li>
-                                <li class="">
-                                	<a href="http://themes.framework-y.com/yellowbusiness/my-account/">Laravel</a></li></ul></li>
                            <li class="dropdown {{ (request()->is('live_demo')) ? 'active' : '' }}">
                               <a href="<?php echo url("live_demo"); ?>" role="button">LIVE DEMO </a>
                             </li>
@@ -116,18 +110,7 @@
             </div>
         </div>
     </header>
-<!--in feed ads--->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-fb+5w+4e-db+86"
-     data-ad-client="ca-pub-4152597108794624"
-     data-ad-slot="8942859090"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>  
-<!--in feed ads--->
+
 <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
   @yield('content')
   <!---Footer Start-->
