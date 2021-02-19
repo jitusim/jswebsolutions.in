@@ -56,10 +56,7 @@
         <div class="col-sm-4">
           <div class="panel-body">
            @include('front.component.contact_number') 
-            @include('front.component.popular_post') 
-               {{-- @include('front.component.newsletter') --}}
-            @include('front.component.php_function')
-            </div>
+          </div>
      </div>
     </div>
 </div>
