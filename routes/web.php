@@ -23,6 +23,7 @@ Route::group(['middleware'=>['auth']] , function(){
  Route::get('js_admin/seo_management_list' , "AdminController@seo_management_list");
  Route::get('js_admin/{any}/{p1?}' , "AdminController@page");
  Route::post('js_admin/save_seo_page' , "AdminController@save_seo_page");
+ 
  Route::post('js_admin/{action}' , "AdminController@post_aciton");
  Route::get('js_admin_ajax/{action}' , 'Ajaxcontroler@get_action');  
 });
@@ -31,12 +32,16 @@ Route::get('/hire-me' ,"HomeController@hire_me");
 Route::get('/ajax' ,"HomeController@ajax");
 Route::get('/laravel' ,"HomeController@laravel");
 Route::get('/jquery' ,"HomeController@jquery");
-Route::get('/git' ,"HomeController@git");
-Route::get('/{page?}' ,"HomeController@index");
+Route::get('php_codes/{page?}' , 'Php@page');
+
+Route::get('/about' , "SiteController@about");
+Route::get('/contact-us' , "SiteController@contactUs");
+
 
 
 // Route::get('/' , 'SiteController@index');
 // Route::get('/{page?}' , 'SiteController@page');
-Route::get('php_codes/{page?}' , 'Php@page');
+
+Route::get('/{page?}' ,"HomeController@index");
 Route::get('/{page}/{p1}' , "SiteController@post");
 

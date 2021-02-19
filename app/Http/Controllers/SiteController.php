@@ -7,18 +7,16 @@ use DB;
 class SiteController extends Controller{
     
 	public function index(){
+	  
+	  $data['head_title'] = $data['meta_keyword'] = $data['meta_description'] = NULL;
 	  $request_url = request()->fullUrl();
 	  $seo_content = DB::table('seo_content_tbl')->where([['page_url','=',$request_url]])->first();
 		if($seo_content != NULL){
 		   $data['head_title'] = $seo_content->page_title;
 		   $data['meta_keyword'] = $seo_content->meta_key_word;
 		   $data['meta_description'] = $seo_content->meta_description;
-		}
-	  $data['head_title'] = " Home | php , ajax , jquery , javascript , html , pdo mysql live demo , free download ";
-	  $data['meta_keyword'] = "learn best php tutorial with demo , learn web development with demo , best web design tutorials , javascript tutorial , new html code , latest css, new framework , codeignitor tutorials with demo , php with mysql , php with ajax ,  php course, html course"; 
-      $data['meta_description'] = "Jswebsolution || Learn best php tutorial with demo , web development , web technology , php with mysql , pdo mysql , javascript , jquery , html , css, codeignitor , laravel  "; 		
+	   }
 	  $data['pageUrl'] = "https://jswebsolutions.in/";
-      $data['title'] = "jswebsolutions |  Learn best php tutorial with demo  , web development , best web design, javascript  tutorial with demo , jquery tutorials with demo , php with ajax ,  new html code,latest css, new framework, php course, html course"; 
       $data['description'] = "Learn best php tutorial with demo , web development , web technology , php with mysql , pdo mysql , javascript , jquery , html , css, codeignitor , laravel "; 		
 	  $data['imageUrl'] = "";
 	  $data['post'] = Post::where([['deleted_at' , '=' , NULL]])->orderBy('updated_at', 'DESC')->paginate(15);
@@ -28,8 +26,7 @@ class SiteController extends Controller{
 	}
 	
 	public function page($page = NULL){
-	    echo "Working";exit;
-		$data['head_title'] = " Home | php , ajax , jquery , javascript , html , pdo mysql live demo , free download ";
+	   	$data['head_title'] = " Home | php , ajax , jquery , javascript , html , pdo mysql live demo , free download ";
 	 	$data['post_function'] =  Post::post_function(1); 
 		if($page == "ajax"){
 		    $data['title'] = "PHP - Tutorials , php project , live demo , download script , php with ajax , php with mysql pdo";
@@ -62,26 +59,27 @@ class SiteController extends Controller{
 	}
 	
 	public static function post($page , $p1){
-		$request_url = request()->fullUrl();
-        $seo_content = DB::table('seo_content_tbl')->where([['page_url','=',$request_url]])->first();
+	    $data['head_title'] = $data['meta_keyword'] = $data['meta_description'] = NULL;
+	    $request_url = request()->fullUrl();
+	    $seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+	
 		if($seo_content != NULL){
 		   $data['head_title'] = $seo_content->page_title;
 		   $data['meta_keyword'] = $seo_content->meta_key_word;
 		   $data['meta_description'] = $seo_content->meta_description;
 		}
-		
-	 	if(empty($p1)){ return redirect()->back(); }
+		if(empty($p1)){ return redirect()->back(); }
 		if($page == "download_post" || $page == "download"){
 			$data['post_result'] =  Post::post_details($p1);
-			$data['head_title']  = "download | ".$data['post_result']->title;
 			$data['post'] = Post::postList();
 			$page = 'download_post';
 		}
 		if($page == "blogPost" || $page == "post"){
 			$data['resultPostData'] = Post::post_details($p1);
-			$data['description'] = $data['imageUrl'] = $data['pageUrl'] = $data['pageLinked']  =  NULL;
+			$data['description'] = $data['imageUrl'] = $data['pageUrl'] = $data['pageLinked'] =  NULL;
 			if($data['resultPostData'] != NULL){
 			    $title_url = $data['resultPostData']->title_url;
+			    $data['description'] = $data['resultPostData']->description;
 				$image = $data['resultPostData']->image;
 			    $data['imageUrl'] = url("public/uploadsFiles/postImage/$image");
 				$data['pageUrl'] = url("blogPost/$title_url");
@@ -92,8 +90,8 @@ class SiteController extends Controller{
 					$data['pageLinked'] = FALSE;
 				  }
 			  }
-			  /*Manage tags*/
-        	  $data['tags'] = DB::table('page')->where([['private_status','=',NULL]])->get();
+			   /*Manage tags*/
+        	  $data['tags'] = DB::table('page')->where([['private_status' , '=' , NULL]])->get();
         	  if($data['tags']->count() > 0){
         		  foreach($data['tags'] as $tag){
         			   $tag->number_of_post  = DB::table('blogpost')->where([['page_slug' , '=' , $tag->page_slug]])->count();
@@ -103,6 +101,37 @@ class SiteController extends Controller{
 	          /*End*/
 		    $page = "readBlogPost";
 		}
+		 //$data['pageUrl'] = base_url()."blogPost/$pageID";
+		
+	    /*if(!view()->exists('site.'.$page))
+			return view("404")->with($data);
+		 else */ 
+	
 	   return view("front.$page")->with($data);	
+	}
+
+	public function about(){
+		$data['head_title'] = $data['meta_keyword'] = $data['meta_description'] = NULL;
+	    $request_url = request()->fullUrl();
+	    $seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		return view("front.about")->with($data);	
+	}
+
+	public function contactUs(){
+		
+		$data['head_title'] = $data['meta_keyword'] = $data['meta_description'] = NULL;
+	    $request_url = request()->fullUrl();
+	    $seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		return view("front.contact-us")->with($data);	
 	}
 }
