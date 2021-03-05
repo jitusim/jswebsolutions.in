@@ -18,33 +18,31 @@ class AdminController extends Controller {
 		    return redirect('/');
 		  }
 		if($page == "create_post"){
-		   $data['pages'] = Pages::where([['deleted_at' , '=' , NULL] , ['status' , '=' , 'A']])->get();
-		   
+		   $data['pages'] = Pages::where([['deleted_at' , '=' , NULL],['status','=','A']])->get();
 		 }   
 		if($page == "post"){
 		   $data['pageList'] = \App\Post::orderBy('created_at','DESC')->paginate(20);
-		  }
+		}
 		if($page == "edit_post"){
 		    if(empty($p1)) return redirect()->back();   
 			$data['post_detail'] =  \App\Post::where([['id' , '=' , base64_decode($p1)]])->first();
-			 $data['pages'] = Pages::where([['deleted_at' , '=' , NULL] , ['status' , '=' , 'A']])->get();
+			$data['pages'] = Pages::where([['deleted_at' , '=' , NULL] , ['status' , '=' , 'A']])->get();
 		
 		 }
 		if($page == "post_function"){
-		  
+			$data['pages'] = Pages::where([['deleted_at','=',NULL] , ['status','=','A']])->get();
 		 } 
-		 if($page == "pages" || $page == "create_page"){
-		      $data['pageList'] = DB::table('page')->get();
-		  }
+		if($page == "pages"){
+		    $data['pageList'] = DB::table('page')->get();
+		}
+		if($page == "create_page"){
+			$data['pageList'] = sHelper::parentPages();
+		}
 		if($page == "post_function_list"){
 		   $data['post_function_list'] = \App\Post::get_all_post_function();
-		   //echo "<pre>";
-		   //print_r($data['post_function_list']);exit;
 		 } 
 		if($page == "edit_post_function"){
 		   $data['post_function_detail'] = \App\Post::get_all_post_function($p1);
-		   //echo "<pre>";
-		   //print_r($data['post_function_list']);exit;
 		 } 
 		 if($page == "add_seo_content"){
 		    if(empty($p1)) return redirect()->back();
@@ -55,14 +53,14 @@ class AdminController extends Controller {
 		     $data['page_content'] = DB::table('page')->where([['page_slug' , '=' , $p1]])->first();
 		  }  
 		 /*edit seo page*/
-		 if($page == "edit_seo_page"){
+		if($page == "edit_seo_page"){
 			 $data['post'] = NULL;
 			 if(!empty($p1)){
 			    $data['post'] = DB::table('seo_content_tbl')->where([['id','=',$p1]])->first();
 			   }
-			
-		   }
+		}
 		 /*End*/ 
+	
 	    if(!view()->exists('admin.'.$page))
           return view("404")->with($data);
         else  
@@ -70,8 +68,8 @@ class AdminController extends Controller {
 	}	
 	
 	public function post_aciton(Request $request , $action){
-	     /*edit page create*/
-	  if($action == "edit_page"){
+	    /*edit page create*/
+	    if($action == "edit_page"){
 		  if(!empty($request->page_id)){
 			if(!empty($request->page_name)){
 			  $page_slug_name = sHelper::slug($request->page_name);
@@ -159,17 +157,7 @@ class AdminController extends Controller {
 			 }
 		   
 		}	
-	  if($action == "post_function"){
-		   $response = Post::add_post_function($request);
-		   if($response){
-			 return redirect()->back()->with(['msg'=>'<div class="notice notice-success">
-                                           <strong>Success </strong> Post update Successful  .</div>.']);  
-			 }
-		   else{
-			 return redirect()->back()->with(['msg'=>'<div class="notice notice-danger">
-                                           <strong>Wrong </strong> Something Went wrong , please try again  .</div>.']);  
-			 }	 
-		}	
+	 
 	  if($action == "edit_post"){
 	     $image = $this->upload_image($request);
 	  	 $response = \App\Post::post_update($request , $image);
@@ -185,18 +173,18 @@ class AdminController extends Controller {
 		}	
 	  /*Save post ascript start*/
 	  if($action == "save_post"){
-		 $response = \App\Post::save_post($request);
-		 if($response){
-			 //print_r($data['success']);exit;
-			 $location = url("public/pages/");
-			 //$myFile = $location.$data['success'].".html";
-			 $myFile = "public/pages/".$response.".html";
-			 $fh = fopen($myFile,'w');
-			 $stringData = "";
-			 fwrite($fh, $stringData);
-			 fclose($fh);
-		   }
-		 return redirect()->back()->with(['msg'=>'<div class="notice notice-success">
+		 	$response = \App\Post::save_post($request);
+			if($response){
+				//print_r($data['success']);exit;
+				$location = url("public/pages/");
+				//$myFile = $location.$data['success'].".html";
+				$myFile = "public/pages/".$response.".html";
+				$fh = fopen($myFile,'w');
+				$stringData = "";
+				fwrite($fh, $stringData);
+				fclose($fh);
+			}
+		   return redirect()->back()->with(['msg'=>'<div class="notice notice-success">
                                            <strong>Success </strong>Message send , We will contact shortly  .</div>.']);  
 		}	
 	 /*End*/	

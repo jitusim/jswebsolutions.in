@@ -1,0 +1,186 @@
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 680px;">
+
+<p style="text-align:justify">Hello Friends in this tutorials we know that . How to browse multiple image and preview image by using Javascript and Jquery</p>
+
+
+
+<p style="text-align:justify">In this article i explain you step by step . How to browse multiple image and preview all image after upload . Many Project where implement this type requirement . So We seen how to do this and implement in our project . First create a&nbsp;<span style="color:rgb(0, 153, 51)"><strong>index.php&nbsp;</strong></span>file . Inside this file we take a input type=&quot;file&quot; tag which shown like as below</p>
+
+
+
+<pre>
+
+  &lt;input type=&quot;file&quot; name=&quot;image&quot; id=&quot;image&quot; multiple /&gt;  </pre>
+
+
+
+<p>&nbsp;</p>
+
+
+
+<h3>index.php</h3>
+
+
+
+<div style="box-sizing: border-box; padding: 0px;">
+
+<pre>
+
+     
+
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+
+  &lt;title&gt;Browse Multiple Image and Preview&lt;/title&gt;
+
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css&quot;&gt;
+
+  &lt;link rel=&quot;icon&quot; href=&quot;favicon_icon.png&quot; /&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div class=&quot;container&quot; style=&quot;margin-top:100px;&quot;&gt;
+
+  &lt;h2 class=&quot;banner_heading&quot;&gt;Browse Multiple Image and Preview&lt;/h2&gt;
+
+   &lt;hr /&gt;
+
+     	&lt;div class=&quot;row&quot;&gt;
+
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt; 
+
+                  &lt;label for=&quot;category&quot;&gt;Input&lt;/label&gt;
+
+                    &lt;div class=&quot;form-group&quot; style=&quot;margin-top:10px;&quot;&gt;
+
+                     &lt;input type=&quot;file&quot; name=&quot;image&quot; id=&quot;image&quot; multiple /&gt;
+
+                    &lt;/div&gt;
+
+		        &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class=&quot;row&quot; style=&quot;margin-top:25px;&quot;&gt;
+
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt; 
+
+                  &lt;label for=&quot;category&quot;&gt;Image Preview&lt;/label&gt;
+
+                    &lt;div class=&quot;form-group&quot; style=&quot;margin-top:10px;&quot; id=&quot;response&quot;&gt;
+
+                    &lt;/div&gt;
+
+		        &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+     
+
+     
+
+    </pre>
+
+</div>
+
+
+
+<div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+
+</div>
+
+
+
+<div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+
+</div>
+
+
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+
+<h3>custom.js</h3>
+
+
+
+<div style="box-sizing: border-box; padding: 0px;">
+
+<pre>
+
+    
+
+&lt;script&gt;
+
+function readFile() {
+
+  if (this.files &amp;&amp; this.files[0]) {
+
+    var FR= new FileReader();
+
+    FR.addEventListener(&quot;load&quot;, function(e) {
+
+	  append_image(e.target.result);
+
+    }); 
+
+    FR.readAsDataURL( this.files[0] );
+
+  }
+
+}
+
+document.getElementById(&quot;image&quot;).addEventListener(&quot;change&quot;, readFile);
+
+function append_image(src_data){
+
+  var img = &#39;&lt;img id=&quot;img&quot; height=&quot;150&quot; width=&quot;150&quot; class=&quot;img img-thumbnail&quot; src=&quot;&#39;+ src_data +&#39;&quot; /&gt;&#39;;
+
+  $(&quot;#response&quot;).append(img)	
+
+}
+
+&lt;/script&gt; 
+
+    
+
+    </pre>
+
+</div>
+
+</div>
+
+</div>
+

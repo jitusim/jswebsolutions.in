@@ -1,309 +1,618 @@
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
-<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 680px;">
+
 <h3>index.php</h3>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;?php
+
 include &quot;classCrud.php&quot;;
+
 $obj = new Class_crud;
+
 $con = &quot;id != &#39;&#39;&quot;;
+
 $result = $obj-&gt;get_data(&quot;employee&quot; , $con , &quot;*&quot;);
+
 ?&gt;
+
 &lt;!DOCTYPE html&gt;
+
 &lt;html lang=&quot;en&quot;&gt;
+
 &lt;head&gt;
+
   &lt;title&gt;crud opeartion using php with ajax .&lt;/title&gt;
+
   &lt;meta charset=&quot;utf-8&quot;&gt;
+
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+
   &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
   &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;/head&gt;
+
 &lt;body&gt;
+
 &lt;div class=&quot;container&quot;&gt;
+
 &lt;/div&gt;
+
 &lt;div class=&quot;container-fluid&quot;&gt;
+
 &lt;div class=&quot;col-md-8&quot;&gt;
+
     &lt;div class=&quot;form-area&quot;&gt;  
+
         &lt;br style=&quot;clear:both&quot;&gt;
+
         &lt;h3 style=&quot;margin-bottom: 25px;&quot;&gt;&lt;button type=&quot;button&quot; name=&quot;form_toggle&quot; id=&quot;form_toggle&quot; class=&quot;btn btn-success&quot;&gt;Add&lt;/button&gt;&amp;nbsp;&amp;nbsp;User List &amp;nbsp;&lt;/h3&gt;
+
         &lt;div class=&quot;col-md-8&quot; id=&quot;form_section&quot; style=&quot;margin-bottom:15px;&quot;&gt;
+
     &lt;div class=&quot;form-area&quot;&gt;  
+
         &lt;form role=&quot;form&quot; id=&quot;user_registration&quot;&gt;
+
         &lt;br style=&quot;clear:both&quot;&gt;
+
                     &lt;h3 style=&quot;margin-bottom: 25px;&quot;&gt;User Registration Form&lt;/h3&gt;
+
     				&lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;Name&quot; &gt;
+
 					&lt;/div&gt;
+
 					&lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Email&quot; &gt;
+
 					&lt;/div&gt;
+
 					&lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;mobile&quot; name=&quot;mobile&quot; placeholder=&quot;Mobile Number&quot; &gt;
+
 					&lt;/div&gt;
+
 					&lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;subject&quot; name=&quot;subject&quot; placeholder=&quot;Subject&quot; required&gt;
+
 					&lt;/div&gt;
+
                     &lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;file&quot; class=&quot;form-control&quot; id=&quot;profile_photo&quot; name=&quot;profile_photo&quot; placeholder=&quot;Subject&quot; &gt;
+
 					&lt;/div&gt;
+
                     &lt;div class=&quot;form-group&quot;&gt;
+
                     &lt;textarea class=&quot;form-control&quot; name=&quot;about&quot; type=&quot;textarea&quot; id=&quot;message&quot; placeholder=&quot;About Details&quot; maxlength=&quot;140&quot; rows=&quot;7&quot;&gt;&lt;/textarea&gt;
+
                         &lt;span class=&quot;help-block&quot;&gt;&lt;p id=&quot;characterLeft&quot; class=&quot;help-block &quot;&gt;You have reached the limit&lt;/p&gt;&lt;/span&gt;                    
+
                     &lt;/div&gt;
+
                    &lt;div id=&quot;response&quot;&gt;&lt;/div&gt;
+
         &lt;button type=&quot;submit&quot; id=&quot;submit_button&quot; name=&quot;user_submit&quot; class=&quot;btn btn-primary pull-right&quot; value=&quot;user_submit&quot;&gt;Submit &lt;/button&gt;
+
         &lt;/form&gt;
+
     &lt;/div&gt;
+
 &lt;/div&gt;   
+
         &lt;div id=&quot;response_result&quot;&gt;&lt;/div&gt;
+
         &lt;table class=&quot;table table-responsive table-bordered&quot;&gt;
+
           &lt;thead&gt;
+
            &lt;th&gt;Image&lt;/th&gt;
+
            &lt;th&gt;Name&lt;/th&gt;
+
            &lt;th&gt;Email&lt;/th&gt;
+
            &lt;th&gt;Mobile&lt;/th&gt;
+
            &lt;th&gt;Reg date&lt;/th&gt;
+
            &lt;th&gt;Action&lt;/th&gt;
+
           &lt;/thead&gt;
+
           &lt;tbody&gt;
+
             &lt;?php
+
              if($result != FALSE){
+
 			    foreach($result as $list){
+
 				    ?&gt;
+
 				   &lt;tr&gt;
+
               &lt;td&gt;&lt;img height=&quot;50&quot; src=&quot;upload/&lt;?php echo $list[&#39;profile_img&#39;]; ?&gt;&quot; /&gt;&lt;/td&gt;
+
               &lt;td&gt;&lt;?php if(!empty($list[&#39;name&#39;])) echo $list[&#39;name&#39;]; ?&gt;&lt;/td&gt;
+
               &lt;td&gt;&lt;?php if(!empty($list[&#39;email&#39;])) echo $list[&#39;email&#39;]; ?&gt;&lt;/td&gt;
+
               &lt;td&gt;&lt;?php if(!empty($list[&#39;mobile&#39;])) echo $list[&#39;mobile&#39;]; ?&gt;&lt;/td&gt;
+
               &lt;td&gt;&lt;?php if(!empty($list[&#39;created_at&#39;])) echo $list[&#39;created_at&#39;]; ?&gt;&lt;/td&gt;
+
                &lt;td&gt;&lt;button type=&quot;button&quot; id=&quot;&lt;?php echo $list[&#39;id&#39;]?&gt;&quot; class=&quot;delete_row_btn btn btn-danger&quot;&gt;Delete&lt;/button&gt;&amp;nbsp;
+
                  &lt;button type=&quot;button&quot; data-edit=&quot;&lt;?php echo $list[&#39;id&#39;]?&gt;&quot; class=&quot;btn btn-primary edit_btn&quot;&gt;Edit&lt;/button&gt;&lt;/td&gt;
+
             &lt;/tr&gt;
+
 				    &lt;?php
+
 				  }
+
 			  }
+
 			 else{
+
 			    ?&gt;
+
 				&lt;tr&gt;
+
                 &lt;td colspan=&quot;6&quot;&gt; No Record Found&lt;/td&gt;
+
                 &lt;/tr&gt;
+
 				&lt;?php
+
 			  } 
+
 			?&gt;
+
           &lt;/tbody&gt;
+
         &lt;/table&gt;   
+
     &lt;/div&gt;
+
 &lt;/div&gt;
+
 &lt;/div&gt;
+
 &lt;!--Edit Matrimonial Modal code start--&gt;
+
 &lt;div class=&quot;modal&quot; id=&quot;edit_details&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+
               &lt;div class=&quot;modal-dialog&quot;&gt;
+
                 &lt;div class=&quot;modal-content&quot;&gt;
+
                   &lt;div class=&quot;modal-header&quot;&gt;
+
                     &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&lt;i class=&quot;text-danger fa fa-times&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+
                     &lt;h4 class=&quot;modal-title&quot; id=&quot;myModalLabel&quot;&gt;&lt;i class=&quot;text-muted fa fa-shopping-cart&quot;&gt;&lt;/i&gt; &lt;strong&gt;Edit User Details &lt;/strong&gt; &lt;/h4&gt;
+
                   &lt;/div&gt;
+
                   &lt;div class=&quot;modal-body&quot;&gt;
+
                     &lt;form role=&quot;form&quot; id=&quot;user_registration_edit_form&quot;&gt;
+
                      &lt;br style=&quot;clear:both&quot;&gt;
+
     				&lt;div class=&quot;form-group&quot;&gt;
+
                       &lt;input type=&quot;hidden&quot; name=&quot;edit_id&quot; id=&quot;edit_id&quot; /&gt;
+
                       &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;edit_name&quot; name=&quot;edit_name&quot; placeholder=&quot;Name&quot; &gt;
+
 					&lt;/div&gt;
+
 					&lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;edit_email&quot; name=&quot;edit_email&quot; placeholder=&quot;Email&quot; &gt;
+
 					&lt;/div&gt;
+
 					&lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;edit_mobile&quot; name=&quot;mobile&quot; placeholder=&quot;Mobile Number&quot; &gt;
+
 					&lt;/div&gt;
+
 					&lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;edit_subject&quot; name=&quot;subject&quot; placeholder=&quot;Subject&quot; required&gt;
+
 					&lt;/div&gt;
+
                     &lt;div id=&quot;append_div&quot;&gt;
+
                     &lt;/div&gt;
+
                     &lt;div class=&quot;form-group&quot;&gt;
+
 						&lt;input type=&quot;file&quot; class=&quot;form-control&quot; id=&quot;edit_profile_photo&quot; name=&quot;edit_profile_photo&quot;  &gt;
+
 					&lt;/div&gt;
+
                     &lt;div class=&quot;form-group&quot;&gt;
+
                     &lt;textarea class=&quot;form-control&quot; name=&quot;about&quot; type=&quot;textarea&quot; id=&quot;edit_message&quot; placeholder=&quot;About Details&quot; maxlength=&quot;140&quot; rows=&quot;7&quot;&gt;&lt;/textarea&gt;
+
                         &lt;span class=&quot;help-block&quot;&gt;&lt;p id=&quot;characterLeft&quot; class=&quot;help-block &quot;&gt;You have reached the limit&lt;/p&gt;&lt;/span&gt;                    &lt;/div&gt;
+
                    &lt;div id=&quot;response_edit&quot;&gt;&lt;/div&gt;
+
         &lt;button type=&quot;submit&quot; id=&quot;user_record_edit&quot; name=&quot;user_record_edit&quot; class=&quot;btn btn-primary &quot; value=&quot;user_record_edit&quot;&gt;Submit &lt;/button&gt;
+
         &lt;/form&gt;
+
                   &lt;/div&gt;
+
                   &lt;div class=&quot;modal-footer&quot;&gt;       
+
                 &lt;/div&gt;
+
               &lt;/div&gt;
+
             &lt;/div&gt;
+
             &lt;/div&gt;
+
 &lt;!--End--&gt;
+
 &lt;script src=&quot;custom.js&quot;&gt;&lt;/script&gt;
+
 &lt;/body&gt;
+
 &lt;/html&gt;
 
+
+
      
+
     </pre>
+
 </div>
+
+
 
 <div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+
 </div>
+
+
 
 <div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+
 </div>
 
+
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+
 <h3>custom.js</h3>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 $(document).ready(function(e) {
+
  $(document).on(&#39;change&#39;,&#39;#edit_profile_photo&#39;,function(){
+
    $(&quot;#img_preview&quot;).remove();
+
    $(&quot;#copy_image&quot;).remove();
+
  });
+
   /*Edit and fetch data and fill in */
+
   $(document).on(&#39;click&#39;,&#39;.edit_btn&#39;,function(){
+
     var edit_id = $(this).data(&#39;edit&#39;);
+
 	var con = confirm(&quot;Are you sure want to Edit this record .&quot;);
+
 			 $(&#39;#edit_id&#39;).val(&quot; &quot;);
+
 	     $(&quot;#edit_name&quot;).val(&quot; &quot;);
+
 			 $(&quot;#edit_email&quot;).val(&quot; &quot;);
+
 			 $(&quot;#edit_mobile&quot;).val(&quot; &quot;);
+
 			 $(&quot;#edit_subject&quot;).val(&quot; &quot;);
+
 			 $(&quot;#edit_message&quot;).val(&quot; &quot;);
+
 	 if( con == true){
+
 	   $.ajax({
+
 		  url: &quot;insert.php&quot;,
+
 		  type: &quot;GET&quot;,        
+
 		  data:{ edit_id:edit_id , get_single:&#39;get_single&#39; },
+
 		  success: function(data){
+
 			 var parseJson = jQuery.parseJSON(data);
+
 			 $(&quot;#edit_id&quot;).val(parseJson.id);
+
 			 $(&quot;#edit_name&quot;).val(parseJson.name);
+
 			 $(&quot;#edit_email&quot;).val(parseJson.email);
+
 			 $(&quot;#edit_mobile&quot;).val(parseJson.mobile);
+
 			 $(&quot;#edit_subject&quot;).val(parseJson.subject);
+
 			 $(&quot;#edit_message&quot;).val(parseJson.about);
+
 			 var html_content = &#39;&lt;img src=&quot;upload/&#39;+ parseJson.profile_img +&#39;&quot; height=&quot;50&quot; id=&quot;img_preview&quot; /&gt;&#39;+
+
 								 &#39;&lt;input type=&quot;hidden&quot; name=&quot;copy_image&quot; id=&quot;copy_image&quot; value=&quot;&#39;+ parseJson.profile_img +&#39;&quot;  /&gt;&#39;;
+
 			 $(&quot;#append_div&quot;).html(html_content);
+
 			 $(&quot;#copy_profile_photo&quot;).val(parseJson.profile_img);
+
 			 $(&quot;#edit_details&quot;).modal(&#39;show&#39;);
+
 			 //$(&quot;#response_result&quot;).html(data);
+
 		   }	
+
 		 });
+
 	  } 
+
   });
+
   /*End*/	
+
 	/*Delete Button code start*/
+
   $(document).on(&#39;click&#39;,&#39;.delete_row_btn&#39;,function(){
+
     var con = confirm(&quot;Are you sure want to delete this &quot;)
+
 	if( con == true){
+
 	   var delete_id = this.id;
+
 	   $(&quot;#response_result&quot;).html(&quot; &quot;);
+
 		 $(&#39;.delete_row_btn&#39;).html(&#39; please wait...&#39;).attr(&#39;disabled&#39;,true); 
+
 		  $.ajax({
+
 		  url: &quot;insert.php&quot;,
+
 		  type: &quot;GET&quot;,        
+
 		  data:{ delete_id:delete_id },
+
 		  success: function(data){
+
 			 $(&#39;.delete_row_btn&#39;).html(&#39;Delete&#39;).attr(&#39;disabled&#39;,false);  
+
 			 $(&quot;#response_result&quot;).html(data);
+
 		   }	
+
 		 });
+
 	  }
+
   });
+
   /*eND*/ 
+
 	 $(document).on(&#39;submit&#39;,&quot;#user_registration&quot;,(function(e) {
+
 	 $(&#39;#response&#39;).html(&quot; &quot;);
+
 	 $(&#39;#submit_button&#39;).html(&#39;&lt;i style=&quot;color:#FFF;&quot; class=&quot;fa fa-circle-o-notch fa-spin&quot;&gt;&lt;/i&gt; please wait...&#39;).attr(&#39;disabled&#39;,true); 
+
 	 e.preventDefault();
+
       $.ajax({
+
 	  url: &quot;insert.php&quot;,
+
       type: &quot;POST&quot;,        
+
       data: new FormData(this),
+
       contentType: false,
+
 	  cache: false,
+
       processData:false,  
+
       success: function(data){
+
 		 $(&#39;#response&#39;).html(data);
+
 		 $(&#39;#submit_button&#39;).html(&#39;Submit&#39;).attr(&#39;disabled&#39;,false); 
+
 	   }	
+
      });
+
 	}));
+
 /* Edit user registration form start*/
+
  $(document).on(&#39;submit&#39;,&#39;#user_registration_edit_form&#39;,(function(e){
+
     $(&#39;#response_edit&#39;).html(&quot; &quot;);
+
 	$(&#39;#user_record_edit&#39;).html(&#39;&lt;i style=&quot;color:#FFF;&quot; class=&quot;fa fa-circle-o-notch fa-spin&quot;&gt;&lt;/i&gt; please wait...&#39;).attr(&#39;disabled&#39;,true); 
+
     e.preventDefault();
+
       $.ajax({
+
 	    url: &quot;update.php&quot;,
+
       type: &quot;POST&quot;,        
+
       data: new FormData(this),
+
       contentType: false,
+
 	    cache: false,
+
       processData:false,  
+
       success: function(data){
+
 		$(&#39;#response_edit&#39;).html(data);
+
 		$(&#39;#user_record_edit&#39;).html(&#39;Submit&#39;).attr(&#39;disabled&#39;,false); 
+
 		setTimeout(function(){ location.reload() } , 1000);
+
 	   }	
+
      });  
+
  }));
+
 /*End */
+
 });
+
 $(document).ready(function(){
+
     $(&quot;#form_section&quot;).hide(); 
+
 	$(document).on(&#39;click&#39;,&#39;#form_toggle&#39;,function(){
+
 	  $(&quot;#form_section&quot;).slideToggle();
+
 	});
+
 });
+
      
+
     </pre>
+
 </div>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+
 </div>
+
+
 
 <div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+
 </div>
+
+
 
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
 <h3>custom.css</h3>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 .notice {
+
     padding: 15px;
+
     background-color: #fafafa;
+
     border-left: 6px solid #7f7f84;
+
     margin-bottom: 10px;
+
     -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+
        -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+
             box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+
 }
+
 .notice-sm { padding: 10px; font-size: 80%; }
+
 .notice-success { border-color: #80D651; }
+
 .notice-success&gt;strong { color: #80D651; }
+
 .notice-info { border-color: #45ABCD; }
+
 .notice-info&gt;strong { color: #45ABCD; }
+
 .notice-warning { border-color: #FEAF20; }
+
 .notice-warning&gt;strong { color: #FEAF20; }
+
 .notice-danger { border-color: #d73814; }
+
 .notice-danger&gt;strong { color: #d73814; }
+
      
+
     </pre>
 
+
+
 <div>&nbsp;</div>
+
 </div>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+
 </div>
+
 </div>
+

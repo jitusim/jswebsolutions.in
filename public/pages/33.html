@@ -1,297 +1,594 @@
 <p>hello friends , In this tutorials we will know that how to create a&nbsp; dynamic&nbsp; image gallery using php , ajax ,&nbsp; pdo mysql , bootstrap fancy box . Image gallery is common feature in every web application , business website . So&nbsp; in this tutorials we learn how to create a dynamic image gallery .&nbsp;</p>
 
+
+
 <p>First create a project file index.php just like shown below . then connect database .&nbsp;</p>
 
+
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
-<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 680px;">
+
 <h3><span style="color:#008000"><strong><span style="background-color:#FFFFFF">index.php</span></strong></span></h3>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
 &lt;!DOCTYPE html&gt;
+
 &lt;html lang=&quot;en&quot;&gt;
+
 &lt;head&gt;
+
  &lt;title&gt;Live Deno | jswebsolutions | how to make a image gallery using php with ajax , bootstrap fancybaox  &lt;/title&gt;
+
   &lt;meta charset=&quot;utf-8&quot;&gt;
+
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css&quot;&gt;
+
   &lt;link href=&quot;jquery.fancybox.min.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+
   &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;../favicon_icon.png&quot; &gt;
+
 &lt;/head&gt;
+
 &lt;body&gt;
+
 &lt;div class=&quot;container&quot; style=&quot;margin-top:20px;&quot;&gt;
+
   &lt;div class=&quot;row&quot;&gt;
+
    &lt;form id=&quot;gallery_upload&quot;&gt; 
+
    &lt;div class=&quot;row&quot;  style=&quot;margin-top:50px;&quot;&gt;
+
     &lt;div class=&quot;col-md-8 col-sm-12 col-lg-8 padding_div&quot;&gt;
+
       &lt;input type=&quot;file&quot; name=&quot;image&quot; id=&quot;image&quot; class=&quot;form-control&quot; /&gt;
+
       &lt;div style=&quot;margin-top:20px;&quot;&gt;
+
        &lt;span id=&quot;upload_response&quot;&gt;&lt;/span&gt;  
+
       &lt;/div&gt;
+
 	&lt;/div&gt;
+
     &lt;div class=&quot;col-md-4 col-sm-12 col-lg-4 padding_div&quot;&gt;
+
       &lt;button type=&quot;submit&quot; name=&quot;submit&quot; id=&quot;submit_button&quot; class=&quot;btn btn-success&quot;&gt;  &lt;i class=&quot;glyphicon glyphicon-upload&quot;&gt;&lt;/i&gt; Upload&lt;/button&gt;
+
       &lt;button type=&quot;reset&quot; name=&quot;reset&quot; id=&quot;reset_button&quot; class=&quot;btn btn-danger&quot;&gt;  &lt;i class=&quot;glyphicon glyphicon-refresh&quot;&gt;&lt;/i&gt; Cancel&lt;/button&gt;
+
       	&lt;/div&gt;
+
    &lt;/div&gt;
+
   &lt;/form&gt;
+
   &lt;/div&gt;
+
   &lt;hr /&gt;  
+
   &lt;div class=&quot;row&quot;&gt;
+
     &lt;div id=&quot;delete_response&quot;&gt;&lt;/div&gt;
+
   &lt;/div&gt;
+
   &lt;div class=&quot;row&quot; style=&quot;margin-top:20px; margin-bottom:100px;&quot; id=&quot;load_image_response&quot;&gt;&lt;/div&gt;       
+
 &lt;/div&gt;
+
 &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;script src=&quot;jquery.fancybox.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;script src=&quot;custom.js&quot;&gt;&lt;/script&gt; 
+
 &lt;/body&gt;
+
 &lt;/html&gt;
 
+
+
      
+
     </pre>
+
 </div>
+
+
 
 <div style="box-sizing: border-box; padding: 0px;">Create a action.php file where we define all function like image upload , load dynamic image php script .&nbsp;</div>
+
 </div>
+
+
 
 <div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+
 </div>
 
+
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+
 <h3>action.php</h3>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
 &lt;?php
+
  include &quot;classes/classCrud.php&quot;;
+
  $obj = new Class_crud;
+
  $extArr = array(&quot;png&quot; , &quot;jpg&quot; , &quot;jpeg&quot; , &quot;PNG&quot; , &quot;JPEG&quot; , &quot;JPG&quot;);
 
 
+
+
+
 if(isset($_GET[&#39;action&#39;])){
+
  $con = &quot;id != &#39;&#39;&quot;;	
+
  $image_gallery = $obj-&gt;get_data(&quot;gallery&quot; ,$con, &quot;*&quot;);
+
  if($image_gallery != FALSE){
+
     foreach($image_gallery as $imageArr){
+
 		  ?&gt;
+
 		 &lt;div class=&quot;col-md-4 col-sm-12 col-lg-4 padding_div&quot;&gt;
+
 		  &lt;div class=&quot;box hovereffect&quot;&gt;
+
 			 &lt;a data-fancybox=&quot;gallery&quot; href=&quot;&lt;?php echo $imageArr[&#39;image_path&#39;]; ?&gt;&quot; data-caption=&quot;&quot;&gt;
+
 			   &lt;img src=&quot;&lt;?php echo $imageArr[&#39;image_path&#39;]; ?&gt;&quot; class=&quot;imgdp img-responsive img-thumbnail&quot; &gt;
+
              &lt;/a&gt;
+
              &lt;div class=&quot;overlay&quot;&gt;
+
                 &lt;a class=&quot;info remove_image&quot; data-imageid=&quot;&lt;?php if(!empty($imageArr[&#39;id&#39;])) echo $imageArr[&#39;id&#39;]; ?&gt;&quot; href=&quot;#&quot;&gt;Remove&lt;/a&gt;
+
             &lt;/div&gt;
+
 		  &lt;/div&gt;
+
 		&lt;/div&gt;
+
 		 &lt;?php
+
 	 }
+
    }
+
  }	  
+
+
 
 	  
 
+
+
 if(!empty($_FILES[&#39;image&#39;][&#39;name&#39;])){
+
    $file = $_FILES[&#39;image&#39;][&#39;name&#39;];
+
    $ext = end(explode(&#39;.&#39;, $file));
+
    if(in_array($ext , $extArr)){
+
       $final_file = md5(time()).&quot;.&quot;.$ext;
+
       $file_loc = $_FILES[&#39;image&#39;][&#39;tmp_name&#39;];
+
       $file_size = $_FILES[&#39;image&#39;][&#39;size&#39;];
+
       $folder = &#39;upload/&#39;;
+
       if(!is_dir($folder)){ mkdir($folder, 0755, true); }
+
            move_uploaded_file($file_loc , $folder.$final_file);
+
            $path = &quot;http://localhost/jsdemo/image_gallery/upload/&quot;.$folder.$final_file;
+
            $dataArr = array(&quot;image_name&quot;=&gt;$final_file , &quot;image_path&quot;=&gt;$path);
+
            $result = $obj-&gt;insert(&quot;gallery&quot; , $dataArr);
+
        if($result != FALSE){
+
            echo &#39;&lt;div class=&quot;notice notice-success&quot;&gt;
+
                     &lt;strong&gt; Success &lt;/strong&gt; Image Upload successful  .
+
                  &lt;/div&gt;&#39;;exit;
+
          }
+
        else{
+
          echo &#39;&lt;div class=&quot;notice notice-danger&quot;&gt;
+
                     &lt;strong&gt; Wrong &lt;/strong&gt; Record Delete successful .
+
                  &lt;/div&gt;&#39;;exit;
+
          }	
+
      }
+
     else{
+
       echo &#39;&lt;div class=&quot;notice notice-danger&quot;&gt;
+
             &lt;strong&gt; Wrong &lt;/strong&gt; Only jpeg , png , jpg format  image support .
+
          &lt;/div&gt;&#39;;exit; 
+
     }	 
+
 }
+
 ?&gt;
+
      
+
     </pre>
+
 </div>
+
+
 
 <div style="box-sizing: border-box; padding: 0px;">Create a js file custom.js . in this file we define all ajax code .</div>
+
 </div>
+
+
 
 <div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+
 </div>
 
+
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+
 <h3>custom.js</h3>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
 $(document).ready(function(e) {
+
   gallery_load(); 
+
   /*Load Image Gallery Script Start*/
+
    function gallery_load(){
+
       $.ajax({
+
 	  url: &quot;formSubmit.php&quot;,
+
       type: &quot;GET&quot;,        
+
       data:{action:&quot;get_gallery&quot;},
+
       success: function(data){
+
 	    $(&quot;#load_image_response&quot;).html(data);
+
 	   }	
+
      });
+
    }
+
   /*End*/
+
   
+
   /*Image Remove Script Start*/
+
   $(document).on(&#39;click&#39;,&#39;.remove_image&#39;,function(){
+
     var remove_id = $(this).data(&#39;imageid&#39;);
+
 	if(remove_id != &quot;&quot;){
+
 	    $.ajax({
+
             url: &quot;remove_gallery.php&quot;,
+
             type: &quot;GET&quot;,        
+
             data:{remove_image:&quot;remove_image&quot; , remove_id:remove_id},
+
             success: function(data){
+
               gallery_load();
+
                $(&quot;#delete_response&quot;).html(data);
+
              }	
+
         }); 
+
 	  }
+
   });  
+
   /*End*/
+
   
+
   /*Image upload script start*/
+
   $(document).on(&#39;submit&#39;,&#39;#gallery_upload&#39;,function(e){
+
      $(&#39;#upload_response&#39;).html(&quot;&quot;);
+
 	 $(&#39;#submit_button&#39;).html(&#39;&lt;i style=&quot;color:#FFF;&quot; class=&quot;fa fa-circle-o-notch fa-spin&quot;&gt;&lt;/i&gt; please wait...&#39;).attr(&#39;disabled&#39;,true); 
+
 	 e.preventDefault();
+
       $.ajax({
+
           url: &quot;formSubmit.php&quot;,
+
           type: &quot;POST&quot;,        
+
           data: new FormData(this),
+
           contentType: false,
+
           cache: false,
+
           processData:false,  
+
           success: function(data){
+
            gallery_load();
+
            $(&quot;#reset_button&quot;).click();
+
            $(&#39;#submit_button&#39;).html(&#39; &lt;i class=&quot;glyphicon glyphicon-upload&quot;&gt;&lt;/i&gt; Upload&#39;).attr(&#39;disabled&#39;,false);	 
+
            $(&#39;#upload_response&#39;).html(data);
+
          }	
+
      });
+
   });
+
   /* End */	
+
 });
+
      
+
     </pre>
+
 </div>
+
+
 
 <div style="box-sizing: border-box; padding: 0px;">Create a css file<strong> <span style="color:#008000">site.css&nbsp;</span></strong></div>
+
 </div>
+
+
 
 <div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+
 </div>
 
+
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
 <h3>site.css</h3>
 
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
 .padding_div{ padding:10px;}
+
 .hovereffect {
+
   width: 100%;
+
   height: 100%;
+
   float: left;
+
   overflow: hidden;
+
   position: relative;
+
   text-align: center;
+
   cursor: default;
+
 }
+
+
 
 .hovereffect .overlay {
+
   width: 100%;
+
   height: 100%;
+
   position: absolute;
+
   overflow: hidden;
+
   top: 0;
+
   left: 0;
+
   opacity: 0;
+
   filter: alpha(opacity=0);
+
   background-color: rgba(0,0,0,0.5);
+
   -webkit-transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+
   transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+
 }
+
+
 
 .hovereffect img {
+
   display: block;
+
   position: relative;
+
   -webkit-transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+
   transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+
 }
+
 .hovereffect a.info {
+
   text-decoration: none;
+
   display: inline-block;
+
   text-transform: uppercase;
+
   color: #fff;
+
   border: 1px solid #fff;
+
   background-color: transparent;
+
   opacity: 0;
+
   filter: alpha(opacity=0);
+
   -webkit-transition: all 0.4s ease;
+
   transition: all 0.4s ease;
+
   margin: 50px 0 0;
+
   padding: 7px 14px;
+
 }
+
+
 
 .hovereffect a.info:hover {
+
   box-shadow: 0 0 5px #fff;
+
 }
+
+
 
 .hovereffect:hover img {
+
   -ms-transform: scale(1.2);
+
   -webkit-transform: scale(1.2);
+
   transform: scale(1.2);
+
 }
+
+
 
 .hovereffect:hover .overlay {
+
   opacity: 1;
+
   filter: alpha(opacity=100);
+
 }
+
+
 
 .hovereffect:hover h2,.hovereffect:hover a.info {
+
   opacity: 1;
+
   filter: alpha(opacity=100);
+
   -ms-transform: translatey(0);
+
   -webkit-transform: translatey(0);
+
   transform: translatey(0);
+
 }
 
+
+
 .hovereffect:hover a.info {
+
   -webkit-transition-delay: .2s;
+
   transition-delay: .2s;
+
 }
+
+
 
 </pre>
 
-<p>&nbsp;</p>
+
 
 <p>&nbsp;</p>
+
+
+
+<p>&nbsp;</p>
+
+
 
 <p><span style="font-size:20px"><span style="color:#FF0000">Note :&nbsp; All about project details brief in this section . otherwise&nbsp;If you encounter any problems in this tutorial, you can download this code and do it.&nbsp;</span></span></p>
+
 </div>
+
 </div>
+
 </div>
+

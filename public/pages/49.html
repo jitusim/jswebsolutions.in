@@ -1,0 +1,93 @@
+<div class="col-sm-8"
+    style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+    <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+        <div class="col-sm-12"
+            style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 680px; margin-bottom: 0px;">
+            <p class="p_for_post">
+            Laravel provides more method to define routes. In the Laravel we can define routes to many way like <b>Closure Method</b> , 
+            </p>
+            <p class="p_for_post">
+                By default all routes methods define inside the routes folder
+            </p>
+            <p class="p_for_post">
+                 <b>1.Closure Method</b> 
+            </p>
+<pre class="prettyprint linenums">
+Route::get('home', function () {
+    //write code here
+    //we can load view file also
+    return 'Hello World';
+});
+</pre>
+            <p class="p_for_post">
+                 <b>1.By controller method</b> 
+            </p>
+            <p class="p_for_post">
+                We can define routes in Laravel by using controller method. In this method we have to define a method in controller file. We have to pass that method with controller. lets see by an example. 
+            </p>
+            <p class="p_for_post"> 
+                If we have to open a url like this 
+                <a href="https://jswebsolutions.in/ajax">https://jswebsolutions.in/ajax</a>. Then what should we have to do for that url.
+            </p>
+            
+<pre class="prettyprint linenums">
+//routes/web.php
+Route::get('/ajax', 'UserController@ajax');
+</pre>
+<pre class="prettyprint linenums">
+//app/Http/Controllers/UserController
+
+public function ajax(){
+    //write code here
+
+    view('site/home')->with($data);
+}
+</pre>
+          
+            <p class="p_for_post">
+               We can also define required and optional URI in routes.
+            </p>
+<pre class="prettyprint linenums">
+//routes/web.php
+
+// routes with required URI
+Route::get('/ajax/{p1}', 'UserController@ajax');
+//Define required URI method in controller
+public function ajax($p1){
+//write code here
+view('site/home')->with($data);
+}
+
+// routes with optional URI
+Route::get('/ajax/{p1?}', 'UserController@ajax');
+
+//Define optional URI method in controller
+public function ajax($p1 = NULL){
+//write code here
+view('site/home')->with($data);
+}
+</pre>
+
+<p class="p_for_post">
+    We can define a single url which perform mutiple request at the same url like below.
+</p>
+<pre class="prettyprint linenums">
+//routes/web.php
+
+//we can manage get and post type of request from the same url
+
+Route::match(['get', 'post'], '/ajax', function () {
+//
+});
+
+//we can manage any type of request from the single url
+Route::any('/ajax', function () {
+//
+});
+</pre>
+
+        </div>
+
+    </div>
+
+</div>

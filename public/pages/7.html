@@ -1,107 +1,214 @@
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: ">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
-<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
-<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 680px; margin-bottom: 0px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 680px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
-<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 680px; margin-bottom: 0px;">
+
 <h3>index.php</h3>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
 &lt;head&gt;
+
 &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
 &lt;title&gt;File upload without Form submit by using jquery&lt;/title&gt;
+
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+
   &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
   &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;/head&gt;
+
 &lt;body&gt;
+
   &lt;div class=&quot;container&quot;&gt;    
+
         &lt;div id=&quot;loginbox&quot; style=&quot;margin-top:50px;&quot; class=&quot;mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2&quot;&gt;                    
+
             &lt;div class=&quot;panel panel-info&quot; &gt;
+
                     &lt;div class=&quot;panel-heading&quot;&gt;
+
                         &lt;div class=&quot;panel-title&quot;&gt;Upload Form&lt;/div&gt;
+
                     &lt;/div&gt;     
+
                     &lt;div style=&quot;padding-top:30px&quot; class=&quot;panel-body&quot; &gt;
 
+
+
                         &lt;div style=&quot;display:none&quot; id=&quot;login-alert&quot; class=&quot;alert alert-danger col-sm-12&quot;&gt;&lt;/div&gt;
+
                             
+
                         &lt;form method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; id=&quot;myform&quot; class=&quot;form-horizontal&quot; role=&quot;form&quot;&gt;
+
                                     
+
                             &lt;div style=&quot;margin-bottom: 25px&quot; class=&quot;input-group&quot;&gt;
+
                                         &lt;span class=&quot;input-group-addon&quot;&gt;&lt;i class=&quot;glyphicon glyphicon-user&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+
                                         &lt;input id=&quot;email&quot; type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;username&quot; value=&quot;&quot; placeholder=&quot;username or email&quot;&gt;                                        
+
                                     &lt;/div&gt;
+
                                 
+
                             &lt;div style=&quot;margin-bottom: 25px&quot; class=&quot;input-group&quot;&gt;
+
                                         &lt;span class=&quot;input-group-addon&quot;&gt;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+
                                         &lt;input id=&quot;fileImage&quot; name=&quot;fileImage&quot; type=&quot;file&quot; class=&quot;form-control&quot; name=&quot;fileImage&quot; placeholder=&quot;image&quot;&gt;
+
                                     &lt;/div&gt;
+
                                 &lt;div style=&quot;margin-top:10px&quot; class=&quot;form-group&quot;&gt;
+
                                     &lt;!-- Button --&gt;
+
                                     &lt;div class=&quot;col-sm-12 controls&quot;&gt;
+
                                       &lt;button id=&quot;btnUpload&quot; type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;submit  &lt;/button&gt;
+
                                     &lt;/div&gt;
+
                                 &lt;/div&gt;
+
     
+
                             &lt;/form&gt;     
+
                         &lt;/div&gt;                     
+
                     &lt;/div&gt; 
+
                     &lt;div id=&quot;result&quot;&gt;&lt;/div&gt; 
+
         &lt;/div&gt; 
+
     &lt;/div&gt;
+
 &lt;/body&gt;
+
 &lt;/html&gt;
 
+
+
     </pre>
+
 </div>
+
+
 
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
 <h3>custom.js</h3>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;script&gt;
+
  $(document).ready(function(e) {
+
    $(document).on(&#39;click&#39;,&#39;#btnUpload&#39;,function(){
+
      var fd = new FormData();
+
 	 var files = $(&#39;#fileImage&#39;)[0].files[0];
+
 	 var email = $(&quot;#email&quot;).val();
+
 	 fd.append(&#39;email&#39;,email);
+
 	 fd.append(&#39;file&#39;,files);
+
 	 $.ajax({
+
             url: &#39;upload.php&#39;,
+
             type: &#39;post&#39;,
+
             data: fd,
+
             contentType: false,
+
             processData: false,
+
             success: function(response){
+
                 $(&quot;#result&quot;).html(response);
+
             }
+
         });
 
+
+
    });
+
  });
+
 &lt;/script&gt;
+
 </pre>
+
 </div>
+
 </div>
+
 </div>
+
 </div>
+
 </div>
+
+
 
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
 
+
+
 &nbsp;</pre>
+
 </div>
+

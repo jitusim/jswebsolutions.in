@@ -1,20 +1,40 @@
 <p><span style="color:rgb(38, 50, 56); font-family:roboto,sans-serif"><!--?php</span--></span></p>
 
+
+
 <pre>
+
      
+
 &lt;?php
+
 //Convert to date
+
 $datestr=&quot;2018-11-04 19:10:18&quot;;//Your date
+
 $date=strtotime($datestr);//Converted to a PHP date (a second count)
 
+
+
 //Calculate difference
+
 $diff=$date-time();//time returns current time in seconds
+
 $days=floor($diff/(60*60*24));//seconds/minute*minutes/hour*hours/day)
+
 $hours=round(($diff-$days*60*60*24)/(60*60));
 
+
+
 //Report
+
 echo &quot;$days days $hours hours remain&lt;br /&gt;&quot;;
+
 ?&gt;
+
 </pre>
 
+
+
 <div>&nbsp;</div>
+

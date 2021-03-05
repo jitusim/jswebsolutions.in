@@ -1,45 +1,90 @@
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
-<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
-<p class="p_for_post">In the Article we will learn about javascript Array and Object. We will learn , what is javascript array and object , Syntax of javascript array and object , Work of  javascript array and object , etc . so lets start .</p>
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 680px; margin-bottom: 0px;">
+
+<p class="p_for_post">Laravel Auth is a pretty and powerful feature. Mostly In each application, we have to need to implement logging and logout feature. in this article we will know , how to implement user log out functionality in Laravel .</p>
+
 <!--In article ads-->
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <ins class="adsbygoogle"
+
      style="display:block; text-align:center;"
+
      data-ad-layout="in-article"
+
      data-ad-format="fluid"
+
      data-ad-client="ca-pub-4152597108794624"
+
      data-ad-slot="6887541390"></ins>
+
 <script>
+
      (adsbygoogle = window.adsbygoogle || []).push({});
+
 </script>
+
 <!--In article ads-->
+
 <p class="p_for_post">Define Logout routes in web.php file inside the routes folder .</p>
+
 <pre class="prettyprint linenums">
+
 Route::get("logout" , "Logout@logout");
+
 </pre>
+
+
 
 <p class="p_for_post" >Define logout function Logout controller like below.  </p>
+
 <pre class="prettyprint linenums">
+
 public function logout(){
+
    Auth::logout(Auth::user());
+
    return redirect('/login');
+
 }
+
 </pre>
 
+
+
 <!--In article ads-->
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <ins class="adsbygoogle"
+
      style="display:block; text-align:center;"
+
      data-ad-layout="in-article"
+
      data-ad-format="fluid"
+
      data-ad-client="ca-pub-4152597108794624"
+
      data-ad-slot="6887541390"></ins>
+
 <script>
+
      (adsbygoogle = window.adsbygoogle || []).push({});
+
 </script>
+
 <!--In article ads-->
+
 </pre>
+
 </div> 
+
 </div>
+
 </div>
+

@@ -50,12 +50,11 @@ class Post extends Model{
 	 }
 	 
 	 public static function save_post($request , $image = NULL){
-	 
-	  $title_url = sHelper::slug($request->title);
-	  $arr = self::make_post_arr($request);
-	  $arr['image'] = $image;
-	  $arr['title_url'] = $title_url;
-	  return DB::table('blogpost')->insertGetId($arr);
+		$title_url = sHelper::slug($request->title);
+		$arr = self::make_post_arr($request);
+		$arr['image'] = $image;
+		$arr['title_url'] = $title_url;
+		return DB::table('blogpost')->insertGetId($arr);
 	}
 	
 	public static function post_update($request , $image = NULL){
@@ -63,7 +62,7 @@ class Post extends Model{
 	  $arr = self::make_post_arr($request);
 	  $arr['image'] = $image;
 	  $arr['title_url'] = $title_url; 
-	  return DB::table('blogpost')->where([['id' , '=' , $request->editID]])->update($arr);
+	  return DB::table('blogpost')->where([['id','=',$request->editID]])->update($arr);
 	}
 	
 	public static function make_post_arr($request){
@@ -81,34 +80,8 @@ class Post extends Model{
 	}
 	
 	
-	/*Add function post start*/
-	 public static function add_post_function($request){
-	   $title_url = sHelper::slug($request->title);
-	   $data = array("subject_type"=>$request->blogSubject,
-	                 "title_url"=>$title_url,
-	                 "title"=>$request->title,
-				     "description"=>$request->editor1,
-				     "created_at"=>date("Y-m-d h:i:s"),
-				     "updated_at"=>date("Y-m-d h:i:s") 
-				   );
-		 return DB::table('post_function')->insert($data);
-	 }
-	/*End*/
 	
-	/*Add function post start*/
-	 public static function edit_post_function($request){
-	   $title_url = sHelper::slug($request->title);
-	   $data = array("subject_type"=>$request->blogSubject,
-	                 "title_url"=>$title_url,
-	                 "title"=>$request->title,
-				     "description"=>$request->editor1,
-				     "created_at"=>date("Y-m-d h:i:s"),
-				     "updated_at"=>date("Y-m-d h:i:s") 
-				   );
-		 return DB::table('post_function')->where([['id','=',$request->post_edit_id]])
-		                                  ->update($data);
-	 }
-	/*End*/
+
 	
 	public static function get_all_post_function($id = NULL){
 		   if(!empty($id)){

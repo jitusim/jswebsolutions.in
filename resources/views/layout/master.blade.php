@@ -26,7 +26,7 @@
 	<meta name="keywords" content="<?php if(!empty($meta_keyword))echo $meta_keyword; ?>">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
      <!--<link rel="stylesheet" href="js/font-awesome.css" type="text/css">-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('public/frontWebu/assets/css/bootstrap.min.css') }}">
     <link href="<?php echo url("public/frontWebu/assets/css/style.css"); ?>" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo url("public/frontWebu/assets/css/skin.css"); ?>" />
     <link rel="stylesheet" href="<?php echo asset("public/customjs/custom.css"); ?>" />
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="navbar navbar-main">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
@@ -84,7 +84,7 @@
                                   <a href="<?php echo url("html_template"); ?>" role="button">HTML</a>
                             </li>
                             <li class="dropdown {{ (request()->is('php_codes')) ? 'active' : '' }}">
-                                <a href="<?php echo url("php_codes"); ?>" role="button">PHP</a>
+                                <a href="<?php echo url("php-snippets"); ?>" role="button">PHP</a>
                             </li>
                             <li class="dropdown {{ (request()->is('ajax')) ? 'active' : '' }}">
                                 <a href="<?php echo url("ajax"); ?>" role="button">AJAX</a>
@@ -98,8 +98,8 @@
                             <li class="dropdown {{ (request()->is('laravel')) ? 'active' : '' }}">
                                 <a href="<?php echo url("laravel"); ?>" role="button">LARAVEL </a>
                             </li>
-                           <li class="dropdown {{ (request()->is('live_demo')) ? 'active' : '' }}">
-                              <a href="<?php echo url("live_demo"); ?>" role="button">LIVE DEMO </a>
+                           <li class="dropdown {{ (request()->is('live-demo')) ? 'active' : '' }}">
+                              <a href="<?php echo url("live-demo"); ?>" role="button">LIVE DEMO </a>
                             </li>
                         </ul>
                     </div>
@@ -176,9 +176,9 @@
                                  <a href="<?php echo url("hire-me"); ?>">Hire me </a><br />
                                 <a href="<?php echo url("about"); ?>">About Us</a><br />
                                 <a href="<?php echo url("contact-us"); ?>">Contact Us</a><br />
-                                <a href="<?php echo url("term_and_condition"); ?>">Term &amp; Condition </a><br />
+                                <a href="<?php echo url("term-and-condition"); ?>">Term &amp; Condition </a><br />
                                 <a href="<?php echo url("https://jswebsolutions.business.site/?m=true"); ?>">Google Business</a>
-                                <a href="<?php echo url("privacy_policy"); ?>">Privacy &amp; Policy </a><br />      
+                                <a href="<?php echo url("privacy-policy"); ?>">Privacy &amp; Policy </a><br />      
                             </div>
                         </div>
                     </div>

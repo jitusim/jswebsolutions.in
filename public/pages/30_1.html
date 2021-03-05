@@ -1,0 +1,339 @@
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px;">
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 680px;">
+
+<p style="text-align:justify">jQuery is a fast and lightweight JavaScript library. Using jQuery , we can develop simple frontend applications. Often, due to excessive data from the server in the web page, the data appears across the entire web page due to which it is worthless to see the web application or to view the web page . Use the JavaScript Library to remove all these short comings Problems and to make your application much better and attractive , user friendly . In this tutorial, we will learn how to load data from client side in our application. And for this, we will use jQuery.</p>
+
+
+
+<p style="text-align:justify">Well , In this article first we create a&nbsp;<span style="color:rgb(0, 153, 51)"><strong>index.php&nbsp;</strong></span>file . Inside this file we make a&nbsp;<span style="color:rgb(255, 0, 0)">ul&nbsp;</span>tag which class we assume&nbsp;<span style="color:rgb(255, 0, 0)">loadMore&nbsp;</span>then inside this ul tag create more&nbsp;<span style="color:rgb(255, 0, 0)">li tag&nbsp;</span>them close&nbsp;<span style="color:rgb(255, 0, 0)">ul&nbsp;</span>. By default<span style="color:rgb(255, 0, 0)">display:none&nbsp;</span>property initialized from<span style="color:rgb(255, 0, 0)">&nbsp;ul tag .</span></p>
+
+
+
+<h3>index.php</h3>
+
+
+
+<div style="box-sizing: border-box; padding: 0px;">
+
+<pre>
+
+     
+
+&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
+&lt;title&gt;Load more data on button click using jQuery &lt;/title&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt; 
+
+
+
+&lt;style&gt;
+
+  .loadMore{ list-style-type:none; }
+
+  .loadMore li{ display:none; }
+
+&lt;/style&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+
+   &lt;div class=&quot;row&quot;&gt;
+
+    &lt;h2&gt;Load more data on button click using jQuery &lt;/h2&gt;
+
+    &lt;hr /&gt;
+
+    &lt;div class=&quot;col-sm-2&quot;&gt;&lt;/div&gt;
+
+     &lt;div class=&quot;col-sm-6&quot;&gt;
+
+     &lt;ul class=&quot;loadMore list-group&quot;&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+   &lt;li&gt;first&lt;/li&gt;
+
+ &lt;/ul&gt;
+
+     &lt;a   name=&quot;load_more&quot; id=&quot;load_more&quot; class=&quot;btn btn-success&quot;&gt;Load More&lt;/a&gt;
+
+     &lt;/div&gt;
+
+ 
+
+   &lt;/div&gt;
+
+ &lt;/div&gt;  
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+     
+
+    </pre>
+
+</div>
+
+
+
+<div style="box-sizing: border-box; padding: 0px;">&nbsp;</div>
+</div>
+
+
+
+<div class="col-sm-4" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 390px;">&nbsp;</div>
+
+</div>
+
+
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
+<p style="text-align:justify">Then create a&nbsp;<span style="color:rgb(0, 153, 51)"><strong>custom.js</strong>&nbsp;</span>file . take a variable&nbsp;<span style="color:rgb(255, 0, 0)">limit&nbsp;</span>and initialized value 5 by default . Use slice() Method for select subset of&nbsp;<span style="color:rgb(255, 0, 0)">ul tag&nbsp;</span>then display on document load then click a button which id is&nbsp;<span style="color:rgb(255, 0, 0)">load_more&nbsp;</span>then increase value of&nbsp;<span style="color:rgb(255, 0, 0)">limit&nbsp;</span>variable and show the&nbsp;<span style="color:rgb(255, 0, 0)">li&nbsp;</span>.</p>
+
+
+
+<h3>custom.js</h3>
+
+
+
+<div style="box-sizing: border-box; padding: 0px;">
+
+<pre>
+
+    
+
+&lt;script&gt;
+
+  $(document).ready(function(e) {
+
+     var limit = 5;
+
+	 $(&quot;.loadMore li&quot;).slice(0, limit).show();
+
+	 $(document).on(&#39;click&#39;,&#39;#load_more&#39;,function(e){
+
+         limit += 5;
+
+		 e.preventDefault();
+
+	     $(&quot;.loadMore li&quot;).slice(0, limit).show();
+
+	 });
+
+	 //var lenght_name =  $(&quot;.loadMore li&quot;).length;
+
+  });
+
+ &lt;/script&gt;     
+
+   </pre>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: ">
+
+<div style="box-sizing: border-box; padding: 0px;">
+
+<pre>
+
+
+
+&nbsp;</pre>
+
+</div>
+
+</div>
+
+</div>
+

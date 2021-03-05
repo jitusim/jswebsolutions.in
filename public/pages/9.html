@@ -1,104 +1,208 @@
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: ">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 25px; float: left; width: 1170px; margin-bottom: -25px;">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: ">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 25px; float: left; width: 1170px; margin-bottom: -25px;">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: ">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 25px; float: left; width: 780px; margin-bottom: -25px;">
+
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
 <h3>index.php</h3>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;!doctype html&gt;
+
 &lt;html lang=&quot;en&quot;&gt;
+
 &lt;head&gt;
+
   &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+
   &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
   &lt;link rel=&quot;stylesheet&quot; href=&quot;//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css&quot;&gt;
+
   &lt;link rel=&quot;stylesheet&quot; href=&quot;/resources/demos/style.css&quot;&gt;
+
   &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+
   &lt;script src=&quot;https://code.jquery.com/ui/1.12.1/jquery-ui.js&quot;&gt;&lt;/script&gt;
+
   &lt;script src=&quot;custom.js&quot;&gt;&lt;/script&gt;
+
   &lt;script&gt;
+
   $( function() {
+
     $( &quot;#datepicker&quot; ).datepicker();
+
   } );
+
   $( function() {
+
     $( &quot;#datepicker1&quot; ).datepicker();
+
   } );
+
   &lt;/script&gt;
+
 &lt;/head&gt;
+
 &lt;body&gt;
+
 &lt;div class=&quot;container&quot; style=&quot;margin-top:25px;&quot;&gt;
+
   &lt;div class=&quot;row&quot;&gt;
+
     &lt;div class=&quot;col-sm-12&quot;&gt;
+
      &lt;h2&gt;Compare beetween two date in javascirpt Simply&lt;/h2&gt;
+
     &lt;/div&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
+
 &lt;div class=&quot;container&quot;&gt;
+
  &lt;div class=&quot;row&quot;&gt;
+
    &lt;div class=&quot;col-sm-12&quot;&gt;
+
      &lt;p&gt;First Date: &lt;input type=&quot;text&quot; id=&quot;datepicker&quot; name=&quot;firstDate&quot; class=&quot;form-control&quot;&gt;&lt;/p&gt;
+
      &lt;br /&gt;
+
      &lt;p&gt;Second Date: &lt;input type=&quot;text&quot; id=&quot;datepicker1&quot; class=&quot;form-control&quot; name=&quot;secondDate&quot;&gt;&lt;/p&gt;
+
      &lt;br /&gt;
+
      &lt;p id=&quot;result&quot;&gt;&lt;/p&gt;
+
    &lt;/div&gt;
+
  &lt;/div&gt;
+
 &lt;/div&gt; 
+
 &lt;/body&gt;
+
 &lt;/html&gt;
 
+
+
     </pre>
+
 </div>
+
+
 
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
 <h3>custom.js</h3>
+
 </div>
+
 </div>
+
+
 
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;script&gt;
+
 $(document).ready(function(e) {
+
    $(document).on(&#39;change&#39;,&#39;#datepicker1&#39;,function(){
+
 	   $(&quot;#result&quot;).html();
+
       var firstDate = $(&#39;#datepicker&#39;).val();
+
 	  var secondDate = $(&quot;#datepicker1&quot;).val();
+
 	  if(firstDate ==&quot;&quot;){
+
 		  $(&quot;#result&quot;).html(&quot;&lt;p class=&#39;alert alert-danger&#39;&gt;Select first Date in first date Picker  &lt;/p&gt;&quot;);
+
 		}
+
 	  else{
+
 		 if(new Date(firstDate) &gt; new Date(secondDate)){
+
 		      $(&quot;#result&quot;).html(&quot;&lt;p class=&#39;alert alert-warning&#39;&gt;First date is Greater than second Date . &lt;/p&gt;&quot;);
+
 		   }
+
 		 else{
+
 		     $(&quot;#result&quot;).html(&quot;&lt;p class=&#39;alert alert-info&#39;&gt;Second Date is Greater than First Date . &lt;/p&gt;&quot;);
+
 		   }  
+
 		}	
+
 	   	
+
    });
+
  });
+
 &lt;/script&gt; 
+
      
+
     </pre>
 
-<div>&nbsp;</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 
 <div>&nbsp;</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div>&nbsp;</div>
+

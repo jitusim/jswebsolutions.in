@@ -1,235 +1,470 @@
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: ">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
-<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
-<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 680px; margin-bottom: 0px;">
+
+<div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 680px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
-<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 680px; margin-bottom: 0px;">
+
 <h3>database.php</h3>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;?php
+
  class dbmodel
+
  {
+
     private $dbHost     = &quot;localhost&quot;;
+
     private $dbUsername = &quot;root&quot;;
+
     private $dbPassword = &quot;&quot;;
+
     private $dbName = &quot;jswebsolutions&quot;;
+
 	public function __construct()
+
 	{
+
  		try {
+
           $conn = new PDO(&quot;mysql:host=&quot;.$this-&gt;dbHost.&quot;;dbname=&quot;.$this-&gt;dbName, $this-&gt;dbUsername, $this-&gt;dbPassword);
+
          // set the PDO error mode to exception
+
           $conn-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
           $this-&gt;db = $conn;
+
 		  //echo &quot;Connected successfully&lt;br /&gt;&quot;; 
+
             }
+
           catch(PDOException $e)
+
             {
+
              echo &quot;Connection failed: &quot; . $e-&gt;getMessage();
+
             }
+
 	}
+
  }
+
 ?&gt;
 
+
+
     </pre>
+
 </div>
 
+
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
 <h3>index.php</h3>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;?php 
+
 include&quot;classCRUD.php&quot;;
+
 $obj = new Classcrud;
+
 $result = $obj-&gt;getalldata(&quot;countries&quot;,&quot;*&quot;,&quot;id !=&#39;&#39;&quot;);
+
  ?&gt;
+
 &lt;!DOCTYPE html&gt;
+
 &lt;html lang=&quot;en&quot;&gt;
+
 &lt;head&gt;
+
 &lt;meta charset=&quot;utf-8&quot;&gt;
+
 &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+
 &lt;link href=&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css&quot; rel=&quot;stylesheet&quot;&gt;
+
 &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;/head&gt;
+
 &lt;body&gt;
+
     &lt;div class=&quot;container&quot;&gt;
+
     	&lt;div class=&quot;row&quot;&gt;
+
         	&lt;div class=&quot;col-lg-12 pull-down-lg&quot;&gt;
+
             	&lt;h3&gt;Dynamic Depend Dropdown List .&lt;/h3&gt;
+
                 &lt;hr /&gt;
+
             &lt;/div&gt;
+
             &lt;?php
+
             if(isset($err) &amp;&amp; $err!=&quot;&quot;)
+
 			{
+
 			?&gt;
+
             &lt;div class=&quot;col-lg-12&quot;&gt;
+
             	&lt;p class=&quot;alert alert-danger&quot;&gt;&lt;i class=&quot;glyphicon glyphicon-warning-sign&quot;&gt;&lt;/i&gt;&amp;nbsp;&lt;?php echo $err ?&gt;&lt;/p&gt;
+
             &lt;/div&gt;
+
             &lt;?php	
+
 			}
+
 			if(isset($_GET[&quot;success&quot;]))
+
 			{
+
 			?&gt;
+
               &lt;div class=&quot;col-lg-12&quot;&gt;
+
                	&lt;p class=&quot;alert alert-success&quot;&gt;&lt;i class=&quot;glyphicon glyphicon-ok-sign&quot;&gt;&lt;/i&gt;&amp;nbsp;&lt;stro    ng&gt;Wow!&lt;/strong&gt; Record inserted successfully.&lt;/p&gt;
+
                 &lt;script&gt;setTimeout(&quot;window.location.href=&#39;index.php&#39;&quot;, 2000);&lt;/script&gt;
+
             &lt;/div&gt;
+
              &lt;?php	
+
 			}
+
 			?&gt;
+
             &lt;div class=&quot;col-sm-6&quot;&gt;
+
             	&lt;form name=&quot;createEmp&quot; action=&quot;&quot; class=&quot;form-horizontal&quot; method=&quot;post&quot;&gt;
+
                 &lt;div class=&quot;form-group&quot;&gt;
+
                 	&lt;label for=&quot;name&quot;&gt;Country:&lt;/label&gt;
+
                     &lt;select name=&quot;country&quot; id=&quot;country&quot; class=&quot;form-control&quot;&gt;
+
                       &lt;option value=&quot;hidden&quot;&gt;--Select--Country--Name--&lt;/option&gt;
+
                       &lt;?php 
+
 					  if($result != FALSE){
+
 						  foreach($result as $list){
+
 						     ?&gt;
+
 							 &lt;option value=&quot;&lt;?php if(!empty($list[&#39;id&#39;]))echo $list[&#39;id&#39;]?&gt;&quot;&gt;&lt;?php if(!empty($list[&#39;name&#39;]))echo $list[&#39;name&#39;]?&gt;&lt;/option&gt;
+
 							 &lt;?php
+
 						   }
+
 						}
+
 					  ?&gt; 
+
                     &lt;/select&gt;
+
                 &lt;/div&gt;
+
                 &lt;div class=&quot;form-group&quot;&gt;
+
                 	&lt;label for=&quot;email&quot;&gt;State:&lt;/label&gt;
+
                      &lt;select name=&quot;state&quot; id=&quot;state&quot; class=&quot;form-control&quot;&gt;
+
                       &lt;option value=&quot;hidden&quot;&gt;--First--Select--Country--&lt;/option&gt;
+
                     &lt;/select&gt;
+
                 &lt;/div&gt;
+
                 &lt;div class=&quot;form-group&quot;&gt;
+
                 	&lt;label for=&quot;mobile&quot;&gt;City:&lt;/label&gt;
+
                      &lt;select name=&quot;city&quot; id=&quot;city&quot; class=&quot;form-control&quot;&gt;
+
                       &lt;option value=&quot;hidden&quot;&gt;--First--Select--State--&lt;/option&gt;
+
                     &lt;/select&gt;
+
                 &lt;/div&gt;
+
                 &lt;/form&gt;
+
             &lt;/div&gt;
+
         &lt;/div&gt;
+
     &lt;/div&gt; &lt;!-- /container --&gt;
+
   
+
   &lt;/body&gt;
+
 &lt;/html&gt;
+
      
+
     </pre>
+
 </div>
 
+
+
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
 <h3>ajax.php</h3>
-</div>
+
 </div>
 
-<div style="box-sizing: border-box; padding: 0px;">
-<pre>
-     
-&lt;?php
-  include&quot;classCRUD.php&quot;; 
-  $obj = new Classcrud;
-  if(isset($_POST[&#39;countryID&#39;])){
-	  $countryID = $_POST[&#39;countryID&#39;];
-	 $result = $obj-&gt;getalldata(&quot;states&quot;,&quot;*&quot;,&quot;country_id =&#39;$countryID&#39;&quot;); 
-	 if($result != FALSE){
-		 ?&gt;
-		  &lt;option value=&quot;hidden&quot;&gt;--Select--State--&lt;/option&gt;
-		 &lt;?php
-	    foreach($result as $stateArr){
-		    ?&gt;
-		     &lt;option value=&quot;&lt;?php if(!empty($stateArr[&#39;id&#39;]))echo $stateArr[&#39;id&#39;]?&gt;&quot;&gt;&lt;?php if(!empty($stateArr[&#39;name&#39;]))echo $stateArr[&#39;name&#39;]?&gt;&lt;/option&gt;
-		    &lt;?php 
-		  }
-	  }
-	 else{
-	    ?&gt;
-		&lt;option value=&quot;hidden&quot;&gt;--No--State--Available--&lt;/option&gt;
-		&lt;?php
-	  }   
-   }
-   
-   
-  if(isset($_POST[&#39;stateID&#39;])){
-	 $state_id = $_POST[&#39;stateID&#39;];
-	 $result = $obj-&gt;getalldata(&quot;cities&quot;,&quot;*&quot;,&quot;state_id =&#39;$state_id&#39;&quot;); 
-	 if($result != FALSE){
-		foreach($result as $city){
-		    ?&gt;
-		     &lt;option value=&quot;&lt;?php if(!empty($city[&#39;id&#39;]))echo $city[&#39;id&#39;]?&gt;&quot;&gt;&lt;?php if(!empty($city[&#39;name&#39;]))echo $city[&#39;name&#39;]?&gt;&lt;/option&gt;
-		    &lt;?php 
-		  }
-	  }
-	 else{
-	    ?&gt;
-		&lt;option value=&quot;hidden&quot;&gt;--No--State--Available--&lt;/option&gt;
-		&lt;?php
-	  }   
-   }
-   
-?&gt;
-     
-    </pre>
 </div>
+
+
+
+<div style="box-sizing: border-box; padding: 0px;">
+
+<pre>
+
+     
+
+&lt;?php
+
+  include&quot;classCRUD.php&quot;; 
+
+  $obj = new Classcrud;
+
+  if(isset($_POST[&#39;countryID&#39;])){
+
+	  $countryID = $_POST[&#39;countryID&#39;];
+
+	 $result = $obj-&gt;getalldata(&quot;states&quot;,&quot;*&quot;,&quot;country_id =&#39;$countryID&#39;&quot;); 
+
+	 if($result != FALSE){
+
+		 ?&gt;
+
+		  &lt;option value=&quot;hidden&quot;&gt;--Select--State--&lt;/option&gt;
+
+		 &lt;?php
+
+	    foreach($result as $stateArr){
+
+		    ?&gt;
+
+		     &lt;option value=&quot;&lt;?php if(!empty($stateArr[&#39;id&#39;]))echo $stateArr[&#39;id&#39;]?&gt;&quot;&gt;&lt;?php if(!empty($stateArr[&#39;name&#39;]))echo $stateArr[&#39;name&#39;]?&gt;&lt;/option&gt;
+
+		    &lt;?php 
+
+		  }
+
+	  }
+
+	 else{
+
+	    ?&gt;
+
+		&lt;option value=&quot;hidden&quot;&gt;--No--State--Available--&lt;/option&gt;
+
+		&lt;?php
+
+	  }   
+
+   }
+
+   
+
+   
+
+  if(isset($_POST[&#39;stateID&#39;])){
+
+	 $state_id = $_POST[&#39;stateID&#39;];
+
+	 $result = $obj-&gt;getalldata(&quot;cities&quot;,&quot;*&quot;,&quot;state_id =&#39;$state_id&#39;&quot;); 
+
+	 if($result != FALSE){
+
+		foreach($result as $city){
+
+		    ?&gt;
+
+		     &lt;option value=&quot;&lt;?php if(!empty($city[&#39;id&#39;]))echo $city[&#39;id&#39;]?&gt;&quot;&gt;&lt;?php if(!empty($city[&#39;name&#39;]))echo $city[&#39;name&#39;]?&gt;&lt;/option&gt;
+
+		    &lt;?php 
+
+		  }
+
+	  }
+
+	 else{
+
+	    ?&gt;
+
+		&lt;option value=&quot;hidden&quot;&gt;--No--State--Available--&lt;/option&gt;
+
+		&lt;?php
+
+	  }   
+
+   }
+
+   
+
+?&gt;
+
+     
+
+    </pre>
+
+</div>
+
+
 
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
 <h3>custom.js</h3>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;script&gt;
+
     $(document).ready(function(e) {
+
       &lt;!--Country state change start--&gt;
+
 	  $(document).on(&#39;change&#39;,&#39;#country&#39;,function(){
+
       var countryID = $(&quot;#country&quot;).val();
+
 	  $.ajax({
+
       url: &quot;ajax.php&quot;,
+
       type: &quot;POST&quot;,           
+
       data: {countryID:countryID},
+
       success: function(res){
+
 		 $(&quot;#state&quot;).html(res);
+
 		}
+
        });
+
 	  }); 
+
 	   &lt;!--Country state change End--&gt;
+
 	   &lt;!--city state change start--&gt;  
+
 	  $(document).on(&#39;change&#39;,&#39;#state&#39;,function(){
+
       var stateID = $(&quot;#state&quot;).val();
+
 	  $.ajax({
+
       url: &quot;ajax.php&quot;,
+
       type: &quot;POST&quot;,           
+
       data: {stateID:stateID},
+
       success: function(data){
+
 		 $(&quot;#city&quot;).html(data);
+
 		}
+
        });
+
 	  });
+
 	   &lt;!--city state change start--&gt;  
+
     });
+
     &lt;/script&gt;
+
 </pre>
-</div>
-</div>
-</div>
-</div>
+
 </div>
 
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
+
 
 &nbsp;</pre>
+
 </div>
+

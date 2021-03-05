@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use DB;
+use App\Model\Admin\Interview;
 
 class HomeController extends Controller{
 	
@@ -46,8 +47,7 @@ class HomeController extends Controller{
       }
       return view("front.$page")->with($data);	 
 	}
-	
-	
+
 	public function contact_send(Request $request){
 	    $data =  array('name'=>$request->name,
 		               'email'=>$request->email ,
@@ -102,6 +102,72 @@ class HomeController extends Controller{
 		$data['posts'] = Post::get_post_for_web("jquery");
 		return view("front.jquery")->with($data);	 
 	}
+
+	public function privacyPolicy(){
+		$data[] = NULL;
+		$request_url = request()->fullUrl();
+	  	$seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		 /*Manage tags*/
+		$data['tags'] = DB::table('page')->where([['private_status','=', NULL]])->get();
+		if($data['tags']->count() > 0){
+			foreach($data['tags'] as $tag){
+				$tag->number_of_post  = DB::table('blogpost')->where([['page_slug' , '=' , $tag->page_slug]])->count();
+			}
+		}
+	  /*End*/
+		return view("front.privacy_policy")->with($data);	 
+	}
+	public function termAndCondition(){
+		// echo "<pre>";
+		// print_r("working");exit;
+		$data[] = NULL;
+		$request_url = request()->fullUrl();
+	  	$seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		 /*Manage tags*/
+		$data['tags'] = DB::table('page')->where([['private_status','=', NULL]])->get();
+		if($data['tags']->count() > 0){
+			foreach($data['tags'] as $tag){
+				$tag->number_of_post  = DB::table('blogpost')->where([['page_slug' , '=' , $tag->page_slug]])->count();
+			}
+		}
+	  /*End*/
+	    //$data['post_function'] =  Post::post_function(1); 
+		//$data['posts'] = Post::get_post_for_web("jquery");
+		return view("front.term_and_condition")->with($data);	 
+	}
+
+	public function javascript(){
+		$data[] = NULL;
+		$request_url = request()->fullUrl();
+	  	$seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		 /*Manage tags*/
+		$data['tags'] = DB::table('page')->where([['private_status','=', NULL]])->get();
+		if($data['tags']->count() > 0){
+			foreach($data['tags'] as $tag){
+				$tag->number_of_post  = DB::table('blogpost')->where([['page_slug' , '=' , $tag->page_slug]])->count();
+			}
+		}
+	  /*End*/
+	    $data['post_function'] =  Post::post_function(1); 
+		$data['posts'] = Post::get_post_for_web("javascript");
+		//return view("front.javascript")->with($data);	
+		return view("front.javascript")->with($data);	  
+	}
 	
 	public function laravel(){
 		$data[] = NULL;
@@ -122,6 +188,28 @@ class HomeController extends Controller{
 	  /*End*/
 		$data['posts'] = Post::get_post_for_web("laravel");
 		return view("front.laravel")->with($data);	 
+	}
+
+	public function liveDemo(){
+		$data[] = NULL;
+		$request_url = request()->fullUrl();
+	  	$seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		 /*Manage tags*/
+		$data['tags'] = DB::table('page')->where([['private_status','=', NULL]])->get();
+		if($data['tags']->count() > 0){
+			foreach($data['tags'] as $tag){
+				$tag->number_of_post  = DB::table('blogpost')->where([['page_slug' , '=' , $tag->page_slug]])->count();
+			}
+		}
+	  /*End*/
+	  	$data['post_function'] =  Post::post_function(1); 
+		$data['post'] = Post::get_post(); 
+		return view("front.live_demo")->with($data);	 
 	}
 	
 	
@@ -170,6 +258,40 @@ class HomeController extends Controller{
 	  /*End*/
 		$data['posts'] = Post::get_post(['ajax_type'=>1]);
 		return view("front.hire-me")->with($data);	 
+	}
+
+	public function InterviewQuestionPost(){
+		$data[] = NULL;
+		$request_url = request()->fullUrl();
+	  	$seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		//echo "working";exit;
+		$data['post_function'] = Interview::get(); 
+	
+		//$data['posts'] = Post::get_post(['ajax_type'=>1]);
+		//$data['post_function'] = Post::post_function(1);
+		return view("front.interview.question-list")->with($data);	 
+	}
+
+	public function question(){
+		$data[] = NULL;
+		$request_url = request()->fullUrl();
+	  	$seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		//echo "working";exit;
+		$data['post_function'] = Interview::get(); 
+	
+		//$data['posts'] = Post::get_post(['ajax_type'=>1]);
+		//$data['post_function'] = Post::post_function(1);
+		return view("front.interview.question-detail")->with($data);	 
 	}
 	
    

@@ -1,0 +1,138 @@
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 680px; margin-bottom: 0px;">
+
+<h3>index.php</h3>
+
+</div>
+
+</div>
+
+
+
+<div style="box-sizing: border-box; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; padding: 0px;">
+
+<pre>
+
+     
+
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+
+&lt;meta charset=&quot;utf-8&quot;&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+
+&lt;link href=&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div style=&quot;margin-bottom:100px;&quot;&gt;
+
+   &lt;/div&gt; 
+
+    &lt;div class=&quot;container&quot;&gt;
+
+    	&lt;div class=&quot;row&quot;&gt;
+
+        	&lt;div class=&quot;col-lg-12 pull-down-lg&quot;&gt;
+
+            	&lt;h2&gt;Pan Card  Format Validation , Simple by Using Javascript . &lt;/h2&gt;
+
+                &lt;hr /&gt;
+
+            &lt;/div&gt;
+
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+
+            	&lt;div class=&quot;form-group&quot;&gt;
+
+                	&lt;label for=&quot;name&quot;&gt;Enter Pan Card Number:&lt;/label&gt;
+
+                    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; onKeyUp=&quot;pancardValidate(this.value)&quot;  required /&gt;
+
+                    &lt;span id=&quot;response&quot;&gt;&lt;/span&gt;
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt; &lt;!-- /container --&gt;   
+
+  &lt;/body&gt;
+
+&lt;/html&gt;
+
+    </pre>
+
+</div>
+
+
+
+<div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
+<div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
+<h3>custom.js</h3>
+
+</div>
+
+</div>
+
+
+
+<div style="box-sizing: border-box; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; padding: 0px;">
+
+<pre>
+
+     
+
+&lt;script&gt;
+
+ function pancardValidate(panVal){
+
+	document.getElementById(&#39;response&#39;).innerHTML = &quot; &quot;;
+
+	var regpan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+
+    if(panVal != &quot; &quot;){ 
+
+	 if(regpan.test(panVal)){
+
+        document.getElementById(&#39;response&#39;).innerHTML = &quot;&lt;span style=&#39;color:green;&#39;&gt;Valid Pan Card Number.&lt;/span&gt;&quot;;  
+
+	   } else {
+
+	    document.getElementById(&#39;response&#39;).innerHTML = &quot;&lt;span style=&#39;color:red;&#39;&gt;Invalid Pan Card Number .&lt;/span&gt;&quot;;  
+
+      }
+
+	}
+
+    else{
+
+	 document.getElementById(&#39;response&#39;).innerHTML = &quot;&lt;span style=&#39;color:red;&#39;&gt;Pan Card value is required .&lt;/span&gt;&quot;;   
+
+	}	
+
+   }
+
+&lt;/script&gt; 
+
+     
+
+    </pre>
+
+</div>
+

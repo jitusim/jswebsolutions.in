@@ -58,7 +58,49 @@ class SiteController extends Controller{
 	   return view('front.'.$page)->with($data);
 	}
 	
-	public static function post($page , $p1){
+	public function blogs($p1){
+		if(empty($p1)){ return redirect()->back(); }
+		$data['head_title'] = $data['meta_keyword'] = $data['meta_description'] = NULL;
+	    $request_url = request()->fullUrl();
+	    $seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
+	
+		if($seo_content != NULL){
+		   $data['head_title'] = $seo_content->page_title;
+		   $data['meta_keyword'] = $seo_content->meta_key_word;
+		   $data['meta_description'] = $seo_content->meta_description;
+		}
+		
+		
+		$data['resultPostData'] = Post::post_details($p1);
+		$data['description'] = $data['imageUrl'] = $data['pageUrl'] = $data['pageLinked'] =  NULL;
+		if($data['resultPostData'] != NULL){
+			$title_url = $data['resultPostData']->title_url;
+			$data['description'] = $data['resultPostData']->description;
+			$image = $data['resultPostData']->image;
+			$data['imageUrl'] = url("public/uploadsFiles/postImage/$image");
+			$data['pageUrl'] = url("blogPost/$title_url");
+			$load_html_page = $data['resultPostData']->id.'.html';
+			$folder = public_path("pages/");
+			$data['pageLinked'] = $folder."/".$load_html_page;
+			if(!file_exists($data['pageLinked'])){
+				$data['pageLinked'] = FALSE;
+				}
+			}
+			/*Manage tags*/
+			$data['tags'] = DB::table('page')->where([['private_status','=',NULL]])->get();
+			if($data['tags']->count() > 0){
+				foreach($data['tags'] as $tag){
+					$tag->number_of_post  = DB::table('blogpost')->where([['page_slug' , '=' , $tag->page_slug]])->count();
+					//  $tag->number_of_post  = 10;
+				}
+			}
+			/*End*/
+	
+		
+	    return view("front.readBlogPost")->with($data);	
+	}
+	
+	public function post($page , $p1){
 	    $data['head_title'] = $data['meta_keyword'] = $data['meta_description'] = NULL;
 	    $request_url = request()->fullUrl();
 	    $seo_content = DB::table('seo_content_tbl')->where([['page_url','=',(string)$request_url]])->first();
@@ -101,7 +143,7 @@ class SiteController extends Controller{
 	          /*End*/
 		    $page = "readBlogPost";
 		}
-		 //$data['pageUrl'] = base_url()."blogPost/$pageID";
+		 
 		
 	    /*if(!view()->exists('site.'.$page))
 			return view("404")->with($data);

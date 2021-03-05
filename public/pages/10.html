@@ -1,117 +1,234 @@
 <div class="col-sm-8" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: left; width: 780px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;">
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
 &lt;!DOCTYPE html&gt;
+
 &lt;head&gt;
+
 &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
 &lt;title&gt;Search the Perticular text in table , Simple using jQuery&lt;/title&gt;
+
 &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; /&gt;
+
 &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
 &lt;/head&gt;
+
 &lt;body&gt;
+
    &lt;div class=&quot;container&quot; style=&quot;margin-bottom:20px;&quot;&gt;
+
      &lt;div class=&quot;row&quot;&gt;
+
       &lt;div class=&quot;col-sm-6&quot; style=&quot;float:right;&quot;&gt;
+
             &lt;input type=&quot;search&quot; id=&quot;searchBox&quot; value=&quot;&quot; class=&quot;form-control&quot; placeholder=&quot;whats you looking for ?&quot; /&gt;
+
         &lt;/div&gt; 
+
      &lt;/div&gt;
+
    &lt;/div&gt;
+
 &lt;div class=&quot;container&quot;&gt;
+
    &lt;table class=&quot;table&quot; id=&quot;tableData&quot;&gt;
+
     &lt;thead&gt;
+
       &lt;tr&gt;
+
         &lt;th&gt;Firstname&lt;/th&gt;
+
         &lt;th&gt;Lastname&lt;/th&gt;
+
         &lt;th&gt;Email&lt;/th&gt;
+
       &lt;/tr&gt;
+
     &lt;/thead&gt;
+
     &lt;tbody&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;John&lt;/td&gt;
+
         &lt;td&gt;Doe&lt;/td&gt;
+
         &lt;td&gt;john@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;Mary&lt;/td&gt;
+
         &lt;td&gt;Moe&lt;/td&gt;
+
         &lt;td&gt;mary@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;July&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;july@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       
+
       &lt;tr&gt;
+
         &lt;td&gt;July&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;july@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;July&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;july@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;abhishekuly&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;abhishekuly@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;July&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;july@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       
+
       &lt;tr&gt;
+
         &lt;td&gt;July&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;july@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;July&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;july@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       &lt;tr&gt;
+
         &lt;td&gt;Aman&lt;/td&gt;
+
         &lt;td&gt;Dooley&lt;/td&gt;
+
         &lt;td&gt;aman@example.com&lt;/td&gt;
+
       &lt;/tr&gt;
+
       
+
     &lt;/tbody&gt;
+
   &lt;/table&gt;
+
 &lt;/div&gt;
+
 &lt;/body&gt;
+
 &lt;/html&gt;
+
     </pre>
+
 </div>
+
+
 
 <div class="row" style="box-sizing: border-box; margin-right: -15px; margin-left: -15px;">
+
 <div class="col-sm-12" style="box-sizing: border-box; position: relative; min-height: 1px; padding: 0px; float: left; width: 780px; margin-bottom: 0px;">
+
 <h3>custom.js</h3>
-</div>
+
 </div>
 
+</div>
+
+
+
 <div style="box-sizing: border-box; padding: 0px;">
+
 <pre>
+
      
+
 &lt;script&gt;
+
 $(document).ready(function(){
+
     $(&#39;#searchBox&#39;).on(&#39;keyup&#39;,function(){
+
         var searchContent = $(this).val().toLowerCase();
+
         $(&#39;#tableData tbody tr&#39;).each(function(){
+
             var lineStr = $(this).text().toLowerCase();
+
             if(lineStr.indexOf(searchContent) === -1){
+
                 $(this).hide();
+
             }else{
+
                 $(this).show();
+
             }
+
         });
+
     });
+
 });
+
 &lt;/script&gt;
+
 </pre>
+
 </div>
+
 </div>
+

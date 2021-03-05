@@ -54,6 +54,7 @@
                   <!--  <li><a href="<?php echo url('js_admin/create_post') ?>">Create New Post</a></li>-->
                     <li><a href="<?php echo url('js_admin/post') ?>">Post List</a></li>
                     <li><a href="<?php echo url('js_admin/post_function_list') ?>">Post Function List</a></li>
+                     <li><a href="<?php echo url('js_admin/interviews') ?>">Interview Question</a></li>
                   <!--  <li><a href="<?php echo url('js_admin/save_site_map') ?>">Save sitemap url</a></li>
                     <li><a href="<?php echo url('js_admin/save_site_map') ?>">Post Seo Content</a></li>-->
                      <li><a href="<?php echo url('js_admin/seo_management') ?>">Seo Management</a></li>

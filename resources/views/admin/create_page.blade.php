@@ -22,7 +22,7 @@
            <div class="panel-body">
 			     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a class="btn btn-primary" href="<?php echo url("js_admin/post"); ?>">Post List</a>
+                            <a class="btn btn-primary" href="<?php echo url("js_admin/post"); ?>">Page List</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -31,11 +31,8 @@
                                     @csrf
                                         <div class="form-group">
                                             <label>Select Parent page </label>
-                                              <select class="form-control" name="parent_id" id="">
-                                                  <option value="">--Select--Page-- </option>
-                                                @foreach($pageList as $page)
-                                                <option value="<?php echo $page->id; ?>"><?php echo $page->page_name; ?></option>
-                                                @endforeach
+                                              <select class="form-control" name="parent_id" id="parent_id">
+                                                 {!! $pageList !!}
                                               </select>
                                         </div>
                                         <div class="form-group">
